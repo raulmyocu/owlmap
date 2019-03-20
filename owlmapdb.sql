@@ -79,7 +79,7 @@ CREATE TABLE `usuarios` (
   `expediente` varchar(11) NOT NULL,
   `apellidos` varchar(63) NOT NULL,
   `nombres` varchar(63) NOT NULL,
-  `correo` varchar(127) NOT NULL,
+  `correo` varchar(63) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `powers` enum('normal','mod','admin') DEFAULT 'normal',
   PRIMARY KEY (`expediente`,`correo`)
@@ -104,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-19 18:04:47
+-- Dump completed on 2019-03-20 17:44:54
