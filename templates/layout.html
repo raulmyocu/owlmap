@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>OwlMap - {{title}}</title>
+    {% else %}
+    <title>OwlMap</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <h1>OwlMap</h1>
+      {% if title %}
+      <a href="/home" class="text-center">
+        <button class="btn btn-primary">Ir al mapa</button>
+      </a>
+      {% else %}
+      <a href="/forum" class="text-center">
+        <button class="btn btn-primary">Ir al foro</button>
+      </a>
+      {% endif %}
+    </nav>
+    {% block content %}{% endblock content %}
+    <!-- JQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

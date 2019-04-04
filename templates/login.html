@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="container">
+    <form action='' method='POST'>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo institucional:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Utiliza tu correo proporcionado por la universidad">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña:</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+      </div>
+
+      <a href="/forum">
+        <button class="btn btn-primary">Submit</button>
+      </a>
+
+    </form>
+  </div>
+{% endblock content %}
