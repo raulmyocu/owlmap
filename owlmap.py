@@ -35,7 +35,7 @@ def login():
 
 @app.route("/forum")
 def forum():
-    return render_template('forum.html', title='Foro', name='Raul y XI=imena', posts=posts)
+    return render_template('forum.html', title='Foro', posts=posts)
 
 if __name__ == '__main__':
     app.run(debug=True)
