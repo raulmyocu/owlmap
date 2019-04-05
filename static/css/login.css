@@ -176,7 +176,6 @@ input[type=password]:placeholder {
 }
 
 
-
 /* ANIMATIONS */
 
 /* Simple CSS3 Fade-in-down Animation */
@@ -278,7 +277,6 @@ input[type=password]:placeholder {
 .underlineHover:hover:after{
   width: 100%;
 }
-
 
 
 /* OTHERS */
