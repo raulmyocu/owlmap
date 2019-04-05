@@ -1,7 +1,11 @@
+#owlmap-logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #map-template {
   height: 100%;
   width: 100%;
   position: absolute;
-  overflow: hidden;
   background: lightskyblue;
 }

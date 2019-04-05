@@ -22,8 +22,12 @@ posts = [
 def home():
     return render_template('home.html')
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form['exampleInputEmail1']
+        passw = request.form['exampleInputPassword1']
+        return render_template('forum.html', title='Foro', name=email, posts=posts)
     return render_template('login.html', title='Iniciar Sesión')
 
 @app.route("/forum")
