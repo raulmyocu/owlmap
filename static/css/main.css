@@ -1,12 +1,27 @@
-#owlmap-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+#headerbar {
+  position: sticky;
+  z-index: 1;
+}
+
+#login-background {
+  position: relative;
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('../images/owlmap1.png') center no-repeat;
+  background-attachment: fixed;
 }
 
 #map-template {
   height: 100%;
   width: 100%;
+  top: 0;
   position: absolute;
   background: lightskyblue;
+  z-index: 0;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
 }

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
   <head>
     <meta charset="utf-8">
     {% if title %}
@@ -20,28 +16,36 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
   </head>
   <body>
-
-    <nav class="navbar navbar-light bg-light">
-      <div id="owlmap-logo"><img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42"></div>
-      {% if title %}
-      <a href="/home" class="text-center">
-        <button class="btn btn-primary">Ir al mapa</button>
-      </a>
-      {% else %}
-      <a href="/forum" class="text-center">
-        <button class="btn btn-primary">Ir al foro</button>
-      </a>
-      {% endif %}
-    </nav>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <div class="alert alert-{{ category }}">
-      {{ message }}
+    <div id="headerbar">
+      <div class="container">
+        <nav class="navbar navbar-light bg-light">
+          <div class="alignleft">
+            <h1><img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42"> OwlMap</h1>
+          </div>
+          {% if title %}
+          <a href="/home" class="alignright">
+            <button class="btn btn-primary">Ir al mapa</button>
+          </a>
+          {% else %}
+          <a href="/forum" class="alignright">
+            <button class="btn btn-primary">Ir al foro</button>
+          </a>
+          {% endif %}
+        </nav>
+      </div>
     </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith%}
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith%}
+    </div>
+    <!-- Contenido de Ruta -->
     {% block content %}{% endblock content %}
     <!-- JQuery JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
