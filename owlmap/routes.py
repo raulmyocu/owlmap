@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from owlmap import app
 from owlmap.forms import LoginForm
-from owlmap.models import User, Post
+from owlmap.models import User, Post, Point
 
 posts = [
     {

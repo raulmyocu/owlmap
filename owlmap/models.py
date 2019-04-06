@@ -22,3 +22,13 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+class Point(db.Model):
+    clave = db.Column(db.String(15), primary_key=True)
+    lat = db.Column(db.Double, nullable=False)
+    lng = db.Column(db.Double, nullable=False)
+    nom = db.Column(db.String(60), nullable=False)
+    desc = db.Column(db.String(240), nullable=False, default='')
+
+    def __repr__(self):
+        return f"Point('{self.nom}', '{self.lat}', '{self.lng}')"
