@@ -9,6 +9,11 @@
   background-attachment: fixed;
 }
 
+#sidebar-background {
+  position: relative;
+  background-attachment: fixed;
+}
+
 #map-template {
   height: 100%;
   width: 100%;
