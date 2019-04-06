@@ -1,8 +1,13 @@
 var map = L.map('map-template').setView([29.08377, -110.96405], 17);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
 }).addTo(map);
 
-L.marker([29.08331, -111.96398]).addTo(map)
-    .bindPopup('Universidad de Sonora<br> Campus Hermosillo')
+navigator.geolocation.getCurrentPosition(function(position) {
+  const coords = [position.coords.latitude, position.coords.longitude];
+  const locMarker = L.marker(coords);
+  locMarker.bindPopup('Aquí estás').openPopup();
+  map.addLayer(locMarker);
+});
