@@ -1,5 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
+
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Volver al mapa</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Ver guía telefónica</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Agregar información</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Cerrar sesión</a>
+    </li>
+  </ul>
+
+</nav>
   <div class="container">
     <h1>Búho Foro</h1>
     {% if name %}
@@ -15,7 +35,7 @@
         <h2><a class="article-title" href="#">{{ post.titulo }}</a></h2>
         <p><a class="text-muted" href="#">{{ post.autor }} el {{ post.fecha }}</a></p>
         <p class="article-content">{{ post.contenido }}</p>
-      </div
+      </div>
       </article>
     {% endfor %}
   </div>
