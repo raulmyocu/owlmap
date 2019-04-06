@@ -1,64 +1,64 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" id="sidebar-background">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="{{ url_for('static', filename='images/owlmapPuntero.png') }}" width="120px" height="120px" alt="User Icon" />
+          </div>
+          <!-- Sidebar Form -->
+          <div class="content-section" style="text-align:center">
+            <nav class="col-sm-11" style="text-align:center">
 
-<div class="row">
-  <div class="col-sm-4" id="sidebar-background">
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
-        <!-- Tabs Titles -->
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <img src="{{ url_for('static', filename='images/owlmapPuntero.png') }}" width="120px" height="120px" alt="User Icon" />
-        </div>
-        <!-- Sidebar Form -->
-        <div class="content-section" style="text-align:center">
-          <nav class="col-sm-11" style="text-align:center">
+              <!-- Links -->
+              <ul class="navbar-nav" >
+                <li class="border-bottom mb-4" >
+                  <a class="nav-link" href="#">Publicar en foro</a>
+                </li>
+                <li class="border-bottom mb-4">
+                  <a class="nav-link" href="#">  Ver guía telefónica</a>
+                </li>
+                <li class="border-bottom mb-4">
+                  <a class="nav-link" href="#">Agregar información</a>
+                </li>
+                <li class="border-bottom mb-4">
+                  <a class="nav-link" href="#">Cerrar sesión</a>
+                </li>
+              </ul>
 
-            <!-- Links -->
-            <ul class="navbar-nav" >
-              <li class="border-bottom mb-4" >
-                <a class="nav-link" href="#">Publicar en foro</a>
-              </li>
-              <li class="border-bottom mb-4">
-                <a class="nav-link" href="#">  Ver guía telefónica</a>
-              </li>
-              <li class="border-bottom mb-4">
-                <a class="nav-link" href="#">Agregar información</a>
-              </li>
-              <li class="border-bottom mb-4">
-                <a class="nav-link" href="#">Cerrar sesión</a>
-              </li>
-            </ul>
-
-          </nav>
-        </div>
-        <div class="border-top pt-3">
-          <small class ="text-muted">
-            <a class="ml-2" href="{{url_for('home')}}">Regresar al mapa</a>
-          </small>
+            </nav>
+          </div>
+          <div class="border-top pt-3">
+            <small class ="text-muted">
+              <a class="ml-2" href="{{url_for('home')}}">Regresar al mapa</a>
+            </small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-sm">
-    <h1>Búho Foro</h1>
-    {% if name %}
-    <p>¡Hola {{name}}!</p>
-    {% else %}
-    <p>No has iniciado sesión</p>
-    {% endif %}
-    {% for post in posts %}
-    <article class="media content-section">
-      <div class="media-body">
-        <div class="article-metadata">
+    <div class="col-lg-8">
+      <h1>Búho Foro</h1>
+      {% if name %}
+      <p>¡Hola {{name}}!</p>
+      {% else %}
+      <p>No has iniciado sesión</p>
+      {% endif %}
+      {% for post in posts %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+          </div>
+          <h2><a class="article-title" href="#">{{ post.titulo }}</a></h2>
+          <p><a class="text-muted" href="#">{{ post.autor }} el {{ post.fecha }}</a></p>
+          <p class="article-content">{{ post.contenido }}</p>
         </div>
-        <h2><a class="article-title" href="#">{{ post.titulo }}</a></h2>
-        <p><a class="text-muted" href="#">{{ post.autor }} el {{ post.fecha }}</a></p>
-        <p class="article-content">{{ post.contenido }}</p>
-      </div>
-    </article>
-    {% endfor %}
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock content %}

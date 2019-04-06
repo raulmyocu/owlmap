@@ -9,7 +9,7 @@
   background-attachment: fixed;
 }
 #sidebar-background {
-  position: fixed;
+  position: relative;
   background-attachment: fixed;
 }
 
