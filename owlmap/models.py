@@ -25,8 +25,8 @@ class Post(db.Model):
 
 class Point(db.Model):
     clave = db.Column(db.String(15), primary_key=True)
-    lat = db.Column(db.Double, nullable=False)
-    lng = db.Column(db.Double, nullable=False)
+    lat = db.Column(db.Float, nullable=False)
+    lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)
     desc = db.Column(db.String(240), nullable=False, default='')
 
