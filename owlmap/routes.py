@@ -15,6 +15,18 @@ posts = [
         'titulo' : 'El otro post',
         'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
         'fecha' : '3 de Abril de 2090'
+    },
+    {
+        'autor' : 'Raulito Perez',
+        'titulo' : 'El otro post',
+        'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
+        'fecha' : '3 de Abril de 2090'
+    },
+    {
+        'autor' : 'Raulito Perez',
+        'titulo' : 'El otro post',
+        'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
+        'fecha' : '3 de Abril de 2090'
     }
 ]
 
