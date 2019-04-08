@@ -1,4 +1,4 @@
-var map = L.map('map-template').setView([29.08377, -110.96405], 17);
+var map = L.map('map-template', { zoomControl: false }).setView([29.08377, -110.96405], 17);
 
 L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
     detectRetina: true,
