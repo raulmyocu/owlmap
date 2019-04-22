@@ -11,7 +11,7 @@ var buhoIcono = L.icon({
 
     iconSize:     [46, 53], // size of the icon
     iconAnchor:   [23, 52], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    popupAnchor:  [0, -46] // point from which the popup should open relative to the iconAnchor
 });
 
 navigator.geolocation.getCurrentPosition(function(position) {
