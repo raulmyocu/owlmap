@@ -1,7 +1,14 @@
-var map = L.map('map-template', { zoomControl: false }).setView([29.08377, -110.96405], 17);
+bounds = L.latLngBounds(L.latLng(29.088027, -110.973668), L.latLng(29.079270, -110.953851));
+
+var map = L.map('map-template', {
+    zoomControl: false,
+    maxBounds: bounds,
+
+}).setView([29.08377, -110.96405], 17);
 
 L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
     detectRetina: true,
+    minZoom: 16,
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
 }).addTo(map);
