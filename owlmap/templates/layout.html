@@ -25,17 +25,27 @@
     <div id="headerbar">
       <div class="container">
         <nav class="navbar navbar-light bg-light" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0px 0px 10px 10px;">
+          {% if title %}
           <div class="alignleft">
             <h1><img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42"> OwlMap</h1>
           </div>
-          {% if title %}
           <a href="/home" class="alignright">
             <button class="btn btn-primary">Ir al mapa</button>
           </a>
           {% else %}
-          <a href="/forum" class="alignright">
-            <button class="btn btn-primary">Ir al foro</button>
-          </a>
+          <div class="alignleft">
+            <h1>
+              <img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42">
+              OwlMap
+              <a href="/forum" class="alignright pl-3">
+                <button class="btn btn-primary">Ir al foro</button>
+              </a>
+            </h1>
+          </div>
+          <div class="alignleft">
+            <img src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="transform: scaleX(-1);">
+            <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+          </div>
           {% endif %}
         </nav>
       </div>
