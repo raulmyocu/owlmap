@@ -9,3 +9,9 @@ class LoginForm(FlaskForm):
             render_kw={"placeholder": "Contraseña"})
     remember = BooleanField('Recordarme')
     submit = SubmitField('Iniciar sesión')
+
+
+class SearchForm(FlaskForm):
+    searchfield = StringField('Busqueda', validators=[DataRequired()],
+            render_kw={"placeholder": "¿Qué estás buscando?"})
+    submit = SubmitField('Buscar')

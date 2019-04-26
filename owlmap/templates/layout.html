@@ -42,9 +42,12 @@
               </a>
             </h1>
           </div>
-          <div class="alignleft">
-            <img src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="transform: scaleX(-1);">
-            <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+          <div class="">
+            <form action="" method="POST">
+              {{ form.hidden_tag() }}
+              <input class="form-control" id="searchfield" name="searchfield" placeholder="¿Qué estás buscando?" required type="text" value="">
+              <input class="" id="search" name="search" type="image" src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="transform: scaleX(-1);" value="Buscar">
+            </form>
           </div>
           {% endif %}
         </nav>

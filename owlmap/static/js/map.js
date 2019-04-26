@@ -3,7 +3,7 @@ bounds = L.latLngBounds(L.latLng(29.088027, -110.973668), L.latLng(29.079270, -1
 var map = L.map('map-template', {
     zoomControl: false,
     maxBounds: bounds,
-
+    maxBoundsViscosity: 0.6
 }).setView([29.08377, -110.96405], 17);
 
 L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{

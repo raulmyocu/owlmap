@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from owlmap import app
-from owlmap.forms import LoginForm
+from owlmap.forms import LoginForm, SearchForm
 from owlmap.models import User, Post, Point
 
 posts = [
@@ -30,11 +30,16 @@ posts = [
     }
 ]
 
-@app.route("/")
-@app.route("/home")
-@app.route("/map")
+@app.route("/", methods=['GET', 'POST'])
+@app.route("/home", methods=['GET', 'POST'])
+@app.route("/map", methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    print("entraste a home")
+    form = SearchForm()
+    if form.validate_on_submit():
+        print("simon si entendí carnal")
+        return render_template('home.html', form=form, results=["resultado 1", "resultado 2"])
+    return render_template('home.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
