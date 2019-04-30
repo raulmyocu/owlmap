@@ -2,44 +2,6 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" id="sidebar-background">
-      <div class="wrapper fadeInDown">
-        <div id="formContent">
-          <!-- Tabs Titles -->
-          <!-- Icon -->
-          <div class="fadeIn first">
-            <img src="{{ url_for('static', filename='images/owlmapPuntero.png') }}" width="120px" height="120px" alt="User Icon" />
-          </div>
-          <!-- Sidebar Form -->
-          <div class="content-section">
-            <nav class="col-sm-12">
-
-              <!-- Links -->
-              <ul class="navbar-nav" >
-                <li class="border-bottom mb-4" >
-                  <a class="nav-link" href="#">Publicar en foro</a>
-                </li>
-                <li class="border-bottom mb-4">
-                  <a class="nav-link" href="#">Ver guía telefónica</a>
-                </li>
-                <li class="border-bottom mb-4">
-                  <a class="nav-link" href="#">Agregar información</a>
-                </li>
-                <li class="border-bottom mb-4">
-                  <a class="nav-link" href="#">Cerrar sesión</a>
-                </li>
-              </ul>
-
-            </nav>
-          </div>
-          <div class="border-top pt-3">
-            <small class ="text-muted">
-              <a class="ml-0" href="{{url_for('home')}}">Regresar al mapa</a>
-            </small>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="col-lg-8">
       <h1>Búho Foro</h1>
       {% if name %}
