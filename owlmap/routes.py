@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from owlmap import app
 from owlmap.forms import LoginForm, SearchForm
-from owlmap.models import User, Post, Point
+from owlmap.models import User, Point, Post
 
 posts = [
     {
@@ -38,7 +38,9 @@ def home():
     form = SearchForm()
     if form.validate_on_submit():
         print("simon si entendí carnal")
-        return render_template('home.html', form=form, results=["resultado 1", "resultado 2"])
+        buscar = '%'+form.searchfield.data+'%'
+        results = Point.query.filter(Point.nom.like(buscar)).all() # Error: Tabla Point no existe
+        return render_template('home.html', form=form, results=results) # POR ARREGLAR
     return render_template('home.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
