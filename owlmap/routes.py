@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from owlmap import app
+from owlmap import app, db
 from owlmap.forms import LoginForm, SearchForm
 from owlmap.models import User, Point, Post
 
@@ -38,8 +38,7 @@ def home():
     form = SearchForm()
     if form.validate_on_submit():
         print("simon si entendí carnal")
-        buscar = '%'+form.searchfield.data+'%'
-        results = Point.query.filter(Point.nom.like(buscar)).all() # Error: Tabla Point no existe
+        results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all() # Error: Tabla Point no existe
         return render_template('home.html', form=form, results=results) # POR ARREGLAR
     return render_template('home.html', form=form)
 
