@@ -38,8 +38,8 @@ def home():
     form = SearchForm()
     if form.validate_on_submit():
         print("simon si entendí carnal")
-        results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all() # Error: Tabla Point no existe
-        return render_template('home.html', form=form, results=results) # POR ARREGLAR
+        results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all()
+        return render_template('home.html', form=form, results=results)
     return render_template('home.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
