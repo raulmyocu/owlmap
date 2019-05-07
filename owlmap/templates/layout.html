@@ -22,93 +22,101 @@
 </head>
 <body>
 
-  <div class="d-flex" id="wrapper">
+  <div id="headerbar">
+    <div class="container">
 
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper" align="center">
-      <img src="http://dl.hiapphere.com/data/icon/201404/HiAppHere_com_com.owl.iconpack.png" id="icon" alt="User Icon" />
-      <div class="list-group list-group-flush">
+      <nav class="navbar navbar-light bg-light" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0px 0px 10px 10px;">
+
+
         {% if title %}
-        <a href="/home" class="list-group-item list-group-item-action bg-light">Regresar al mapa</a>
-        {% else %}
-        <a href="/forum" class="list-group-item list-group-item-action bg-light">Ir al foro</a>
-        {% endif %}
-        <a href="/login" class="list-group-item list-group-item-action bg-light">Iniciar sesión</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Ver guía telefónica</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Agregar lugar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Agregar maestro</a>
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
+        <div class="alignleft">
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
 
-      <div class="container-fluid">
-
-        <div id="headerbar">
-          <div class="container">
-
-            <nav class="navbar navbar-light bg-light" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 0px 0px 10px 10px;">
-              <button id="menu-toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              {% if title %}
-              <div class="alignleft">
-                <h1><img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42"> OwlMap</h1>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <div class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="navbar-toggler-icon"></span></div>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/home">Ir al mapa</a>
+                      <a class="dropdown-item" href="/login">Iniciar sesión</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <a href="/home" class="alignright">
-              </a>
-              {% else %}
-              <div class="alignleft">
-                <h1>
-                  <img src="{{ url_for('static', filename='images/owlmap1.png') }}" height="42" width="42">
-                  OwlMap
+            </div>
+            <img src="{{ url_for('static', filename='images/owlmapImagotipo.png') }}" height="50" width="150" align="middle">
+          </nav>
 
-                </h1>
-              </div>
-              <div class="">
-                <form action="" method="POST">
-                  {{ form.hidden_tag() }}
-                  <input class="form-control" id="searchfield" name="searchfield" placeholder="¿Qué estás buscando?" required type="text" value="">
-                  <input class="" id="search" name="search" type="image" src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="transform: scaleX(-1);" value="Buscar">
-                </form>
-              </div>
-              {% endif %}
-            </nav>
-          </div>
         </div>
-        <!-- Flashed Messages -->
-        <div class="container">
-          {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-          {% for category, message in messages %}
+        <a href="/home" class="alignright">
+        </a>
+        {% else %}
+        <div class="alignleft">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <div class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="navbar-toggler-icon"></span></div>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/forum">Ir al foro</a>
+                      <a class="dropdown-item" href="/login">Iniciar sesión</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <a class="dropdown-item" href="#">.</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <img src="{{ url_for('static', filename='images/owlmapImagotipo.png') }}" height="50" width="150" align="middle">
+          </nav>
+        </div>
+        <div class="alighright">
+          <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <input class="form-control" id="searchfield" name="searchfield" placeholder="¿Qué estás buscando?" required type="text" value="">
+            <input class="" id="search" name="search" type="image" src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);" value="Buscar">
+          </form>
+        </div>
+        {% endif %}
+
+    </div>
+  </div>
+  <!-- Flashed Messages -->
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
           <div class="alert alert-{{ category }}">
             {{ message }}
           </div>
-          {% endfor %}
-          {% endif %}
-          {% endwith%}
-        </div>
-        <!-- Contenido de Ruta -->
-        {% block content %}{% endblock content %}
-      </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+        {% endfor %}
+      {% endif %}
+    {% endwith%}
   </div>
-  <!-- /#wrapper -->
+  <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="/forum">Ir al foro</a>
+    <a class="dropdown-item" href="/login">Iniciar sesión</a>
+    <a class="dropdown-item" href="#">.</a>
+    <a class="dropdown-item" href="#">.</a>
+    <a class="dropdown-item" href="#">.</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+  <!-- Contenido de Ruta -->
+  {% block content %}{% endblock content %}
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Menu Toggle Script -->
-  <script>
-  $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-  </script>
 
   <!-- JQuery JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
