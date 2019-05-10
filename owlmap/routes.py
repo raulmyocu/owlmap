@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from owlmap import app, db
-from owlmap.forms import LoginForm, SearchForm
+from owlmap.forms import LoginForm, SearchForm, RegistrationForm
 from owlmap.models import User, Point, Post
 
 posts = [
@@ -53,3 +53,16 @@ def login():
 @app.route("/forum")
 def forum():
     return render_template('forum.html', title='Foro', posts=posts)
+
+@app.route("/add", methods=['GET', 'POST'])
+def addInfo():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        punto = Point(clave=form.clave.data, lat=form.latitud.data,
+                lng=form.longitud.data, nom=form.nombre.data,
+                desc=form.descripcion.data)
+        db.session.add(punto)
+        db.session.commit()
+        flash('Información guardada correctamente', 'success')
+        return redirect(url_for('addInfo'))
+    return render_template('addInfo.html', title='Agregar Información', form=form)
