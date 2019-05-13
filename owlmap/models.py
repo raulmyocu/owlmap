@@ -32,3 +32,13 @@ class Point(db.Model):
 
     def __repr__(self):
         return f"Point('{self.nom}', '{self.lat}', '{self.lng}')"
+
+class Maestro(db.Model):
+    clave = db.Column(db.String(15), primary_key=True)
+    lat = db.Column(db.Float, nullable=False)
+    lng = db.Column(db.Float, nullable=False)
+    nom = db.Column(db.String(60), nullable=False)
+    desc = db.Column(db.String(240), nullable=False, default='')
+
+    def __repr__(self):
+        return f"Maestro('{self.nom}', '{self.lat}', '{self.lng}')"

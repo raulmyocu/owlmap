@@ -39,8 +39,11 @@
                   <li class="nav-item dropdown">
                     <div class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="navbar-toggler-icon"></span></div>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/home">Ir al mapa</a>
-                      <a class="dropdown-item" href="/login">Iniciar sesión</a>
+                      <a class="dropdown-item" href="/home">Volver al mapa</a>
+                      <a class="dropdown-item" href="/displayPuntos">Ver información de lugares</a>
+                      <a class="dropdown-item" href="/displayMaestros">Ver información de maestros</a>
+                      <a class="dropdown-item" href="/addPunto">Agregar información de lugares</a>
+                      <a class="dropdown-item" href="/addMaestro">Agregar información de maestros</a>
                       <a class="dropdown-item" href="#">.</a>
                       <a class="dropdown-item" href="#">.</a>
                       <a class="dropdown-item" href="#">.</a>
@@ -67,8 +70,11 @@
                   <li class="nav-item dropdown">
                     <div class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="navbar-toggler-icon"></span></div>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/forum">Ir al foro</a>
                       <a class="dropdown-item" href="/login">Iniciar sesión</a>
+                      <a class="dropdown-item" href="/displayPuntos">Ver información de lugares</a>
+                      <a class="dropdown-item" href="/displayMaestros">Ver información de maestros</a>
+                      <a class="dropdown-item" href="/addPunto">Agregar información de lugares</a>
+                      <a class="dropdown-item" href="/addMaestro">Agregar información de maestros</a>
                       <a class="dropdown-item" href="#">.</a>
                       <a class="dropdown-item" href="#">.</a>
                       <a class="dropdown-item" href="#">.</a>
@@ -104,15 +110,6 @@
         {% endfor %}
       {% endif %}
     {% endwith%}
-  </div>
-  <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="/forum">Ir al foro</a>
-    <a class="dropdown-item" href="/login">Iniciar sesión</a>
-    <a class="dropdown-item" href="#">.</a>
-    <a class="dropdown-item" href="#">.</a>
-    <a class="dropdown-item" href="#">.</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Something else here</a>
   </div>
   <!-- Contenido de Ruta -->
   {% block content %}{% endblock content %}
