@@ -31,7 +31,7 @@
             <td scope="col">{{ punto.lng }}</td>
             <td scope="col">{{ punto.desc }}</td>
             <td scope="col"><p><a href="{{ url_for('editInfoPunto', puntoID=punto.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
-            <td scope="col"><p><a data-toggle="modal" data-target="#deleteModal" href="{{ url_for('deleteInfoPunto', puntoID=punto.clave)}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
+            <td scope="col"><p><a href="{{ url_for('deleteInfoPunto', puntoID=punto.clave)}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
           </tr>
           {% endfor %}
         </tbody>

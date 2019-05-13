@@ -102,7 +102,7 @@ def editInfoPunto(puntoID):
                             title="Editar Información", leged='Editar información')
 
 
-@app.route("/deleteInfoPunto/<puntoID>",  methods=['POST'])
+@app.route("/deleteInfoPunto/<puntoID>",  methods=['GET','POST'])
 def deleteInfoPunto(puntoID):
     punto = Point.query.get_or_404(puntoID)
     db.session.delete(punto)
