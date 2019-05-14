@@ -34,11 +34,12 @@ class Point(db.Model):
         return f"Point('{self.nom}', '{self.lat}', '{self.lng}')"
 
 class Maestro(db.Model):
-    clave = db.Column(db.String(15), primary_key=True)
-    lat = db.Column(db.Float, nullable=False)
-    lng = db.Column(db.Float, nullable=False)
-    nom = db.Column(db.String(60), nullable=False)
-    desc = db.Column(db.String(240), nullable=False, default='')
+    exp = db.Column(db.Integer, primary_key=True)
+    cubo = db.Column(db.String(15), nullable=False)
+    nombres = db.Column(db.String(60), nullable=False)
+    apellidos = db.Column(db.String(60), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    tel = db.Column(db.Integer)
 
     def __repr__(self):
-        return f"Maestro('{self.nom}', '{self.lat}', '{self.lng}')"
+        return f"Maestro('{self.nombres}', '{self.apellidos}', '{self.email}')"
