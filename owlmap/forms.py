@@ -29,6 +29,21 @@ class RegistrationForm(FlaskForm):
             render_kw={"placeholder": "Descripción"})
     submit = SubmitField('Guardar información')
 
-class CrudForm(FlaskForm):
-    editar = SubmitField('editar')
-    eliminar = SubmitField('eliminar')
+
+class RegistrationFormMaestro(FlaskForm):
+    exp = StringField('Expediente', validators=[Length(min=10, max=20), DataRequired()],
+            render_kw={"placeholder": "Expediente"})
+    cubo = StringField('Cubiculo', validators=[DataRequired()],
+            render_kw={"placeholder": "Cubículo"})
+    nombres = StringField('Nombres', validators=[Length(min=5, max=60), DataRequired()],
+            render_kw={"placeholder": "Nombres"})
+    apellidos = StringField('Apellidos', validators=[Length(min=5, max=60), DataRequired()],
+            render_kw={"placeholder": "Apellidos"})
+    email = StringField('Correo', validators=[Length(min=5, max=60), DataRequired()],
+            render_kw={"placeholder": "Correo electrónico"})
+    tel = StringField('Telefono', validators=[Length(min=10, max=16), DataRequired()],
+            render_kw={"placeholder": "Número de teléfono"})
+    cubo = StringField('Cubo', validators=[Length(min=2, max=5), DataRequired()],
+            render_kw={"placeholder": "Cubículo"})
+
+    submit = SubmitField('Guardar información ')

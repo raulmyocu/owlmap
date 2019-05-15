@@ -17,6 +17,7 @@
 
             <div class="form-group">
               {{ form.clave.label(class="form-control-label")}}
+              <br>
               {% if form.clave.errors %}
                 {{ form.clave(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
@@ -31,6 +32,7 @@
 
             <div class="form-group">
               {{ form.latitud.label(class="form-control-label")}}
+              <br>
               {% if form.latitud.errors %}
                 {{ form.latitud(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
@@ -45,6 +47,7 @@
 
             <div class="form-group">
               {{ form.longitud.label(class="form-control-label")}}
+              <br>
               {% if form.longitud.errors %}
                 {{ form.longitud(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
@@ -59,6 +62,7 @@
 
             <div class="form-group">
               {{ form.nombre.label(class="form-control-label")}}
+              <br>
               {% if form.nombre.errors %}
                 {{ form.nombre(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
@@ -73,6 +77,7 @@
 
             <div class="form-group">
               {{ form.descripcion.label(class="form-control-label")}}
+              <br>
               {% if form.descripcion.errors %}
                 {{ form.descripcion(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
@@ -84,7 +89,6 @@
                 {{ form.descripcion(class="form-control form-control-lg")}}
               {% endif %}
             </div>
-
 
           </fieldset>
 

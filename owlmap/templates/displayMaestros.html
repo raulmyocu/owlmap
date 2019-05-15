@@ -13,24 +13,28 @@
       <table class="table table-hover" style="text-align:justify">
         <thead>
           <tr>
-            <th scope="col">Clave</th>
+            <th scope="col">Expediente</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Latitud</th>
-            <th scope="col">Longitud</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Cubículo</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           {% for maestro in maestros %}
           <tr>
-            <td scope="col">{{ maestro.clave }}</td>
-            <td scope="col">{{ maestro.nom }}</td>
-            <td scope="col">{{ maestro.lat }}</td>
-            <td scope="col">{{ maestro.lng }}</td>
-            <td scope="col">{{ maestro.desc }}</td>
-            <td scope="col"><p><a href="{{ url_for('editInfomaestro', maestroID=maestro.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
-            <td scope="col"><p><a data-toggle="modal" data-target="#deleteModal" href="{{ url_for('deleteInfomaestro', maestroID=maestro.clave)}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a> </p></td>
-
+            <td scope="col">{{ maestro.exp }}</td>
+            <td scope="col">{{ maestro.nombres }}</td>
+            <td scope="col">{{ maestro.apellidos }}</td>
+            <td scope="col">{{ maestro.cubo }}</td>
+            <td scope="col">{{ maestro.email }}</td>
+            <td scope="col">{{ maestro.tel }}</td>
+            <td scope="col"><p><a href="{{ url_for('editInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a href="{{ url_for('deleteInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a> </p></td>
+            <!--data-toggle="modal" data-target="#deleteModal" -->
           </tr>
           {% endfor %}
         </tbody>
@@ -60,6 +64,5 @@
     </div>
   </div>
 </div>
-
 
 {% endblock content %}

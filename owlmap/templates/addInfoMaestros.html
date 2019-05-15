@@ -16,74 +16,93 @@
             <legend class="border-bottom mb-4">{{ legend }}</legend>
 
             <div class="form-group">
-              {{ form.clave.label(class="form-control-label")}}
-              {% if form.clave.errors %}
-                {{ form.clave(class="form-control form-control-lg is-invalid")}}
-                <div class="invalid-feedback">
-                  {% for error in form.clave.errors %}
-                  <span>{{error}}</span>
-                  {% endfor %}
-                </div>
+              {{ form.exp.label(class="form-control-label")}}
+              <br>
+              {% if form.exp.errors %}
+              {{ form.exp(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.exp.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
               {%else %}
-                {{ form.clave(class="form-control form-control-lg")}}
+              {{ form.exp(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.latitud.label(class="form-control-label")}}
-              {% if form.latitud.errors %}
-                {{ form.latitud(class="form-control form-control-lg is-invalid")}}
-                <div class="invalid-feedback">
-                  {% for error in form.latitud.errors %}
-                  <span>{{error}}</span>
-                  {% endfor %}
-                </div>
+              {{ form.nombres.label(class="form-control-label")}}
+              <br>
+              {% if form.nombres.errors %}
+              {{ form.nombres(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.nombres.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
               {%else %}
-                {{ form.latitud(class="form-control form-control-lg")}}
+              {{ form.nombres(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.longitud.label(class="form-control-label")}}
-              {% if form.longitud.errors %}
-                {{ form.longitud(class="form-control form-control-lg is-invalid")}}
-                <div class="invalid-feedback">
-                  {% for error in form.longitud.errors %}
-                  <span>{{error}}</span>
-                  {% endfor %}
-                </div>
+              {{ form.apellidos.label(class="form-control-label")}}
+              <br>
+              {% if form.apellidos.errors %}
+              {{ form.apellidos(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.apellidos.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
               {%else %}
-                {{ form.longitud(class="form-control form-control-lg")}}
+              {{ form.apellidos(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.nombre.label(class="form-control-label")}}
-              {% if form.nombre.errors %}
-                {{ form.nombre(class="form-control form-control-lg is-invalid")}}
-                <div class="invalid-feedback">
-                  {% for error in form.nombre.errors %}
-                  <span>{{error}}</span>
-                  {% endfor %}
-                </div>
+              {{ form.email.label(class="form-control-label")}}
+              <br>
+              {% if form.email.errors %}
+              {{ form.email(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
               {%else %}
-                {{ form.nombre(class="form-control form-control-lg")}}
+              {{ form.email(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.descripcion.label(class="form-control-label")}}
-              {% if form.descripcion.errors %}
-                {{ form.descripcion(class="form-control form-control-lg is-invalid")}}
-                <div class="invalid-feedback">
-                  {% for error in form.descripcion.errors %}
-                  <span>{{error}}</span>
-                  {% endfor %}
-                </div>
+              {{ form.tel.label(class="form-control-label")}}
+              <br>
+              {% if form.tel.errors %}
+              {{ form.tel(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.tel.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
               {%else %}
-                {{ form.descripcion(class="form-control form-control-lg")}}
+              {{ form.tel(class="form-control form-control-lg")}}
               {% endif %}
             </div>
+
+            {% if puntos %}
+            <div class="form-group">
+              {{ form.cubo.label(class="form-control-label")}}
+              <select class="form-control" data-live-search="true" name="comp_select" >
+                {% if puntoinicial %}
+                <option data-tokens="{{puntoinicial.nom}}">{{puntoinicial.clave}}</option>
+                {% endif %}
+                {% for punto in puntos %}
+                <option data-tokens="{{punto.nom}}">{{punto.clave}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            {% endif %}
 
           </fieldset>
 
@@ -95,6 +114,5 @@
     </div>
   </div>
 </div>
-
 
 {% endblock content %}
