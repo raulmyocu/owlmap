@@ -35,7 +35,7 @@ class Point(db.Model):
 
 class Maestro(db.Model):
     exp = db.Column(db.Integer, primary_key=True)
-    cubo = db.Column(db.String(15), nullable=False)
+    cubo = db.Column(db.String(15), nullable=True)
     nombres = db.Column(db.String(60), nullable=False)
     apellidos = db.Column(db.String(60), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)

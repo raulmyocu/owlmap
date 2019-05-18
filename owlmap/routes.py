@@ -52,7 +52,7 @@ def login():
 def forum():
     return render_template('forum.html', title='Foro', posts=posts)
 
-# -------------------  CRUD para puntos --------------------------------------
+# ---------------------  CRUD para puntos --------------------------------------
 
 @app.route("/addPunto", methods=['GET', 'POST'])
 def addInfoPunto():
@@ -67,6 +67,7 @@ def addInfoPunto():
             flash('Información guardada correctamente', 'success')
             return redirect(url_for('displayInfoPuntos'))
         except:
+            db.session.rollback()
             flash('Hubo un error al capturar la información', 'danger')
     return render_template('addInfoPuntos.html', title='Agregar Información',
                             form=form, legend='Agregar información')
@@ -92,6 +93,7 @@ def editInfoPunto(puntoID):
             flash('Información guardada correctamente', 'success')
             return redirect('displayPuntos')
         except:
+            db.session.rollback()
             flash('Hubo un error al capturar la información', 'danger')
 
     elif request.method == 'GET':
@@ -133,6 +135,7 @@ def addInfoMaestro():
             flash('Información guardada correctamente', 'success')
             return redirect(url_for('displayInfoMaestros'))
         except:
+            db.session.rollback()
             flash('Hubo un error al capturar la información', 'danger')
     return render_template('addInfoMaestros.html', title='Agregar Información',
                             form=form, legend='Agregar información', puntos=puntos)
@@ -155,7 +158,7 @@ def editInfoMaestro(maestroID):
     if form.validate_on_submit():
         try:
             maestro.exp = form.exp.data
-            maestro.cubo = form.cubo.data 
+            maestro.cubo = form.cubo.data
             maestro.nombres = form.nombres.data
             maestro.apellidos = form.apellidos.data
             maestro.email = form.email.data
@@ -164,6 +167,7 @@ def editInfoMaestro(maestroID):
             flash('Información guardada correctamente', 'success')
             return redirect('displayMaestros')
         except:
+            db.session.rollback()
             flash('Hubo un error al capturar la información', 'danger')
 
     elif request.method == 'GET':
@@ -188,5 +192,6 @@ def deleteInfoMaestro(maestroID):
         db.session.commit()
         flash('Registro eliminado correctamente', 'success')
     except:
+        db.session.rollback()
         flash('Hubo un error en la eliminación de la información', 'danger')
     return redirect('displayMaestros')

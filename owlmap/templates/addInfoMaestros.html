@@ -97,6 +97,7 @@
                 {% if puntoinicial %}
                 <option data-tokens="{{puntoinicial.nom}}">{{puntoinicial.clave}}</option>
                 {% endif %}
+                <option data-tokens="">--</option>
                 {% for punto in puntos %}
                 <option data-tokens="{{punto.nom}}">{{punto.clave}}</option>
                 {% endfor %}
