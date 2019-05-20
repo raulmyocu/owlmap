@@ -35,13 +35,13 @@ class RegistrationFormMaestro(FlaskForm):
             render_kw={"placeholder": "Expediente"})
     cubo = StringField('Cubiculo', validators=[DataRequired()],
             render_kw={"placeholder": "Cubículo"})
-    nombres = StringField('Nombres', validators=[Length(min=5, max=60), DataRequired()],
+    nombres = StringField('Nombres', validators=[DataRequired()],
             render_kw={"placeholder": "Nombres"})
-    apellidos = StringField('Apellidos', validators=[Length(min=5, max=60), DataRequired()],
+    apellidos = StringField('Apellidos', validators=[DataRequired()],
             render_kw={"placeholder": "Apellidos"})
     email = StringField('Correo', validators=[Length(min=5, max=60), DataRequired()],
             render_kw={"placeholder": "Correo electrónico"})
-    tel = StringField('Telefono', validators=[Length(min=8, max=16), DataRequired()],
+    tel = StringField('Telefono', validators=[Length(min=7, max=16), DataRequired()],
             render_kw={"placeholder": "Número de teléfono"})
     cubo = StringField('Cubo', validators=[Length(min=2, max=5)],
             render_kw={"placeholder": "Cubículo"})
