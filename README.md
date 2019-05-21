@@ -53,6 +53,21 @@ Para correr desde la terminal, hay que situarse en el directorio raíz y correr 
 python3 run.py
 ```
 
+Dentro del archivo _run.py_, podemos considerar distintos parámetros para la función _app.run()_ al correr el servidor de desarrollo de Flask.
+
+```Python
+if __name__ == '__main__':
+    app.run() #Añadir parámetros aquí
+```
+
+Añadir parámetro ```debug=True``` para activar el modo de depuración.  
+Añadir parámetro ```host='0.0.0.0'``` para correr servidor en red local.  
+Añadir parámetro ```ssl_context='adhoc'``` para correr mediante protocolo https.
+Para este último es necesario instalar _pyopenssl_ mediante:
+```bash
+pip install pyopenssl
+```
+
 Para detener el servidor, basta con utilizar **CTRL-C**.
 
 _En caso de que la aplicacioń web vaya a ser lanzada a producción, no es recomendable usar el servidor desarrollo de Flask, sino un servidor WSGI como Gunicorn, y un servidor web como Nginx._

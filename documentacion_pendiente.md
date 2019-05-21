@@ -35,7 +35,7 @@
  - Cambiar "Agregar" por "CRUD"
 
  --------
-### Manual de Instalación (_Raúl_)
+### ~~Manual de Instalación~~ (_Raúl_)
  - Requerimientos de pip
  - Iniciar base de datos
  - Correr servidor
