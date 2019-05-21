@@ -18,6 +18,14 @@
   z-index: 0;
 }
 
+#map-select {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: lightskyblue;
+  z-index: 1;
+}
+
 .alignleft {
 	float: left;
 }
