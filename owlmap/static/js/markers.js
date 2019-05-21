@@ -1,6 +1,9 @@
 function verUbicacion(latitud, longitud) {
+  if (locMarker != null) {
+    map.removeLayer(locMarker);
+  }
   const coords = [latitud, longitud];
-  const locMarker = L.marker(coords, {icon: buhoIcono});
-  locMarker.bindPopup('Aquí está el punto').openPopup();
+  locMarker = L.marker(coords);
+  locMarker.bindPopup('¡Aquí está el lugar que buscas!').openPopup();
   map.addLayer(locMarker);
 }

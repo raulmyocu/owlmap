@@ -1,4 +1,6 @@
 bounds = L.latLngBounds(L.latLng(29.088027, -110.973668), L.latLng(29.079270, -110.953851));
+let locMarker = null;
+var ubicacion = null;
 
 var map = L.map('map-template', {
     zoomControl: false,
@@ -22,7 +24,7 @@ var buhoIcono = L.icon({
 });
 
 navigator.geolocation.getCurrentPosition(function(position) {
-  const coords = [position.coords.latitude, position.coords.longitude];
+  coords = [position.coords.latitude, position.coords.longitude];
   const locMarker = L.marker(coords, {icon: buhoIcono});
   locMarker.bindPopup('Aquí estás').openPopup();
   map.addLayer(locMarker);

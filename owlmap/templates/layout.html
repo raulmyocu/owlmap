@@ -102,14 +102,11 @@
           </nav>
         </div>
         <div class="alighright">
-          <form action="" method="POST">
-            {{ form.hidden_tag() }}
-            <input class="form-control" id="searchfield" name="searchfield" placeholder="¿Qué estás buscando?" required type="text" value="">
-            <input class="" id="search" name="search" type="image" src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);" value="Buscar">
-          </form>
+          <input class="form-control" id="searchfield" name="searchfield" placeholder="¿Qué estás buscando?" required type="text" value="">
+          <input onclick="searchString()" type="image" src="{{ url_for('static', filename='images/lupa.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);"></button>
         </div>
         {% endif %}
-
+      </nav>
     </div>
   </div>
   <!-- Flashed Messages -->

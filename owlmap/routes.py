@@ -4,32 +4,6 @@ from owlmap.forms import LoginForm, SearchForm, RegistrationForm, RegistrationFo
 from owlmap.models import User, Point, Post, Maestro
 from flask_login import login_user, current_user, logout_user, login_required
 
-posts = [
-    {
-        'autor' : 'Raul Octavio Murcia Yocupicio',
-        'titulo' : 'El primer post',
-        'contenido' : 'Hola companeros este es el primer post del blog jaja salu2.',
-        'fecha' : '3 de Abril de 2019'
-    },
-    {
-        'autor' : 'Raulito Perez',
-        'titulo' : 'El otro post',
-        'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
-        'fecha' : '3 de Abril de 2090'
-    },
-    {
-        'autor' : 'Raulito Perez',
-        'titulo' : 'El otro post',
-        'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
-        'fecha' : '3 de Abril de 2090'
-    },
-    {
-        'autor' : 'Raulito Perez',
-        'titulo' : 'El otro post',
-        'contenido' : 'Ayuda amigos estoy atrapado en la Matrix...',
-        'fecha' : '3 de Abril de 2090'
-    }
-]
 
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
@@ -236,3 +210,11 @@ def deleteInfoMaestro(maestroID):
         db.session.rollback()
         flash('Hubo un error en la eliminación de la información', 'danger')
     return redirect(url_for('displayInfoMaestros'))
+
+# -------------------  Búsqueda --------------------------------------
+
+@app.route("/search=<stringToSearch>")
+def search(stringToSearch):
+    print(stringToSearch)
+    results = Point.query.filter(Point.nom.contains(stringToSearch)).all()
+    return render_template('results.html', results=results)

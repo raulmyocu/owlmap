@@ -1,0 +1,25 @@
+{% if results %}
+<div class="row">
+  <div class="col-7"></div>
+  <div class="col-4">
+    <div class="container" id="" style="z-index: 1; position: relative">
+      <div class="wrapper fadeInDown">
+        <div class="bg-light" id="formContent">
+          <!-- Resultados-->
+          <legend class="border-top mt-2"></legend>
+          {% for result in results %}
+          <div class="content-section">
+            <button class="btn btn-light" type="button" onclick="verUbicacion({{ result.lat }}, {{ result.lng }})">
+              <h4>{{ result.nom }}</h4>
+              <p>{{ result.desc }}</p>
+            </button>
+            <button class="btn btn-light" type="button" onclick="mostrarRuta({{ result.lat }}, {{ result.lng }})">ruta</button>
+            <legend class="border-bottom mt-2"></legend>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
