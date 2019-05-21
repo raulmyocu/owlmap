@@ -34,10 +34,17 @@ posts = [
 @app.route("/home", methods=['GET', 'POST'])
 @app.route("/map", methods=['GET', 'POST'])
 def home():
+    conectores = ["de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su",
+                "para", "es", "al", "como", "o", "pero", "me", "entre"] # Palabras comunes que no necesitamos buscar
     print("entraste a home")
     form = SearchForm()
     if form.validate_on_submit():
         print("simon si entendí carnal")
+        search = form.searchfield.data
+        busquedas = search.split()
+        for i in range(busquedas.len()):
+            for j in range(conectores.len()):
+                
         results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all()
         return render_template('home.html', form=form, results=results)
     return render_template('home.html', form=form)
