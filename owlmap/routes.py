@@ -9,6 +9,9 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/home", methods=['GET', 'POST'])
 @app.route("/map", methods=['GET', 'POST'])
 def home():
+    conectores = ["de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su",
+                "para", "es", "al", "como", "o", "pero", "me", "entre"] # Palabras comunes que no necesitamos buscar
+
     form = SearchForm()
     if form.validate_on_submit():
         results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all()
