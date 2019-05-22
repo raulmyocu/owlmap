@@ -2,38 +2,23 @@
 {% block content %}
 <div class="container" id="login-background">
   <div class="wrapper fadeInDown">
-    <div id="formContent">
+    <div id="formContentEdit">
       <!-- Tabs Titles -->
       <!-- Icon -->
       <div class="fadeIn first">
-        <img src="{{ url_for('static', filename='images/buho.png') }}"id="icon" alt="User Icon" />
+        <img src="{{ url_for('static', filename='images/buho.png') }}" id="iconSmall" alt="User Icon" />
       </div>
       <!-- Add Form -->
       <div class="content-section">
         <div class="container">
-          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoEdificio')}}"><img src="{{ url_for('static', filename='images/edificio.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
-          <br>
-          <label for="" class="form-control-label">Agregar información de edificio</label>
+          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoEdificio')}}"><img src="{{ url_for('static', filename='images/edificio.png') }}" height="150" width="150" align="middle" style="padding: 30px; opacity: 0.5"><figcaption class="figure-caption">Agregar edificio</figcaption></a>
+          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoServicio')}}"><img src="{{ url_for('static', filename='images/servicio.png') }}" height="150" width="150" align="middle" style="padding: 30px; opacity: 0.5"><figcaption class="figure-caption">Agregar servicio</figcaption></a>
+          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoCubiculo')}}"><img src="{{ url_for('static', filename='images/cubiculo.png') }}" height="150" width="150" align="middle" style="padding: 30px; opacity: 0.5"><figcaption class="figure-caption">Agregar cubículo</figcaption></a>
         </div>
+
         <div class="container">
-          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoServicio')}}"><img src="{{ url_for('static', filename='images/servicio.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
-          <br>
-          <label for="" class="form-control-label">Agregar información de servicio</label>
-        </div>
-        <div class="container">
-          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoCubiculo')}}"><img src="{{ url_for('static', filename='images/cubiculo.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
-          <br>
-          <label for="" class="form-control-label">Agregar información de cubículo</label>
-        </div>
-        <div class="container">
-          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoSalon')}}"><img src="{{ url_for('static', filename='images/salon.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
-          <br>
-          <label for="" class="form-control-label">Agregar información de salón</label>
-        </div>
-        <div class="container">
-          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoMaestro')}}"><img src="{{ url_for('static', filename='images/maestros.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
-          <br>
-          <label for="" class="form-control-label">Agregar información de maestro</label>
+          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoSalon')}}"><img src="{{ url_for('static', filename='images/salon.png') }}" height="150" width="150" align="middle" style="padding: 30px; opacity: 0.5"><figcaption class="figure-caption">Agregar salón</figcaption></a>
+          <a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{url_for('addInfoMaestro')}}"><img src="{{ url_for('static', filename='images/maestros.png') }}" height="150" width="150" align="middle" style="padding: 30px; opacity: 0.5"><figcaption class="figure-caption">Agregar maestro</figcaption></a>
         </div>
 
       </div>
