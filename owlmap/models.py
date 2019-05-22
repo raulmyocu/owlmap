@@ -27,6 +27,8 @@ class Edificio(db.Model):
     lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)
     desc = db.Column(db.String(240), nullable=False, default='')
+    cubiculos = db.relationship('Cubiculo', backref='edificio', lazy=True)
+    salones = db.relationship('Salon', backref='edificio', lazy=True)
 
     def __repr__(self):
         return f"Edificios('{self.clave}', '{self.nom}' , ' {self.lat}' , '{self.lng}')"
@@ -38,7 +40,7 @@ class Cubiculo(db.Model):
     lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)
     desc = db.Column(db.String(240), nullable=False, default='')
-    edif = db.relationship('Edificios', backref='edificio', lazy=True)
+    edif_clave = db.Column(db.String(15), db.ForeignKey('edificio.clave'), nullable=False)
 
     def __repr__(self):
         return f"Cubiculos('{self.clave}', '{self.nom}' , ' {self.lat}' , '{self.lng}')"
@@ -50,7 +52,7 @@ class Salon(db.Model):
     lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)
     desc = db.Column(db.String(240), nullable=False, default='')
-    edif = db.relationship('Edificios', backref='edificio', lazy=True)
+    edif_clave = db.Column(db.String(15), db.ForeignKey('edificio.clave'), nullable=False)
 
     def __repr__(self):
         return f"Salones('{self.clave}', '{self.nom}' , ' {self.lat}' , '{self.lng}')"
