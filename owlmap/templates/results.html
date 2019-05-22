@@ -2,7 +2,8 @@
 <div class="row">
   <div class="col-7"></div>
   <div class="col-4">
-    <div class="container" id="" style="z-index: 1; position: relative">
+
+    <div class="container" style="z-index: 1; position: relative">
       <div class="wrapper fadeInDown">
         <div class="bg-light" id="formContent">
           <!-- Resultados-->
@@ -13,13 +14,14 @@
               <h4>{{ result.nom }}</h4>
               <p>{{ result.desc }}</p>
             </button>
-            <button class="btn btn-light" type="button" onclick="verRuta({{ result.lat }}, {{ result.lng }})">ruta</button>
+            <button class="btn btn-light" type="button" onclick="verRuta({{ result.lat }}, {{ result.lng }})">Ruta</button>
             <legend class="border-bottom mt-2"></legend>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
+
   </div>
 </div>
 {% endif %}

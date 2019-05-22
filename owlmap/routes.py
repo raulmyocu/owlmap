@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request, request
 from owlmap import app, db
-from owlmap.forms import LoginForm, SearchForm, RegistrationForm, RegistrationFormMaestro, RegistrationFormCubSal
+from owlmap.forms import LoginForm, RegistrationForm, RegistrationFormMaestro, RegistrationFormCubSal
 from owlmap.models import User, Maestro, Edificio, Salon, Cubiculo, Servicios
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -9,14 +9,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/home", methods=['GET', 'POST'])
 @app.route("/map", methods=['GET', 'POST'])
 def home():
-    conectores = ["de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su",
-                "para", "es", "al", "como", "o", "pero", "me", "entre"] # Palabras comunes que no necesitamos buscar
-
-    form = SearchForm()
-    if form.validate_on_submit():
-        results = Point.query.filter(Point.nom.contains(form.searchfield.data)).all()
-        return render_template('home.html', form=form, results=results)
-    return render_template('home.html', form=form)
+    return render_template('home.html')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -463,6 +456,9 @@ def deleteInfoMaestro(maestroID):
 
 @app.route("/search=<stringToSearch>")
 def search(stringToSearch):
-    print(stringToSearch)
-    results = Point.query.filter(Point.nom.contains(stringToSearch)).all()
+    conectores = ["de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su",
+                "para", "es", "al", "como", "o", "pero", "me", "entre"] # Palabras comunes que no necesitamos buscar
+
+    results = Edificio.query.filter(Edificio.nom.contains(stringToSearch)).all()
+    print(render_template('results.html', results=results))
     return render_template('results.html', results=results)

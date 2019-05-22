@@ -11,11 +11,6 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Iniciar sesión')
 
 
-class SearchForm(FlaskForm):
-    searchfield = StringField('Busqueda', validators=[DataRequired()],
-            render_kw={"placeholder": "¿Qué estás buscando?"})
-    submit = SubmitField('Buscar')
-
 class RegistrationForm(FlaskForm):
     clave = StringField('Clave del punto', validators=[Length(min=2, max=5), DataRequired()],
             render_kw={"placeholder": "Clave"})
