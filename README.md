@@ -1,6 +1,6 @@
-# OwlMap
+# OwlMap - Manual de Instalación
 
-## Proyecto OwlMap para la materia de Ingeniería de Software I
+## Proyecto elaborado para la materia de Ingeniería de Software I
 
 ### Instalando requerimientos
 
@@ -19,31 +19,56 @@ pip3 install -r requirements.txt
 
 ---
 ### Inicializando la base de datos
-Posteriormente, es necesario inicializar la base de datos de SQLAlchemy.
 
-Para esto, entraremos a Python 3 desde la terminal.
+En este paso, crearemos un archivo site.db para los archivos de la base de datos de SQLAlchemy.
+En caso de que ya exista un archivo _site.db_, lo eliminaremos.
 
 ```bash
-python3
+rm owlmap/site.db
 ```
 
-y la inicializaremos
+- #### Configuración automática
+  Para inicializar la base de datos y crear un administrador, correremos el archivo: _configdb.py_
 
-```python
-from owlmap import db
-db.create_all()
-```
+  Y correremos con Python 3 el archivo de configuración.
 
-Finalmente, podemos crear un administrador
+  ```bash
+  python3 configdb.py
+  ```
+  El usuario administrador será:
 
-```python
-from owlmap import User
-admin = User(exp=123456, email='admin@demo.com', password='admin123', nombres='John', apellidos='Doe')
-db.session.add(admin)
-db.session.commit()
-```
+  ```python
+  email = 'admin@owlmap.com'
+  password = 'admin123'
+  exp = 000000
+  nombres = 'John'
+  apellidos = 'Doe'
+  ```
 
-De esta forma tendremos registrado un usuario administrador.
+- #### Configuración manual
+  Primero, entraremos a Python 3 desde la terminal.
+
+  ```bash
+  python3
+  ```
+
+  y la inicializaremos utilizando el método *create_all()*.
+
+  ```python
+  from owlmap import db
+  db.create_all()
+  ```
+
+  Finalmente, podemos crear un administrador con los parámetros de nuestra preferencia.
+
+  ```python
+  from owlmap.models import User
+  admin = User(exp=123456, email='admin@owlmap.com', password='admin123', nombres='John', apellidos='Doe')
+  db.session.add(admin)
+  db.session.commit()
+  ```
+
+  De esta forma tendremos registrado un usuario administrador.
 
 ---
 ### Correr servidor
