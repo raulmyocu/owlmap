@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" id="login-background">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://dl.hiapphere.com/data/icon/201404/HiAppHere_com_com.owl.iconpack.png" id="icon" alt="User Icon" />
+      </div>
+      <!-- Add Form -->
+      <div class="content-section">
+        <div class="container">
+          <a href="{{url_for('addInfoEdificio')}}"><img src="{{ url_for('static', filename='images/edificio.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
+          <br>
+          <label for="" class="form-control-label">Agregar información de edificio</label>
+        </div>
+        <div class="container">
+          <a href="{{url_for('addInfoServicio')}}"><img src="{{ url_for('static', filename='images/servicio.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
+          <br>
+          <label for="" class="form-control-label">Agregar información de servicio</label>
+        </div>
+        <div class="container">
+          <a href="{{url_for('addInfoCubiculo')}}"><img src="{{ url_for('static', filename='images/cubiculo.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
+          <br>
+          <label for="" class="form-control-label">Agregar información de cubículo</label>
+        </div>
+        <div class="container">
+          <a href="{{url_for('addInfoSalon')}}"><img src="{{ url_for('static', filename='images/salon.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
+          <br>
+          <label for="" class="form-control-label">Agregar información de salon</label>
+        </div>
+        <div class="container">
+          <a href="{{url_for('addInfoMaestro')}}"><img src="{{ url_for('static', filename='images/maestros.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5"></a>
+          <br>
+          <label for="" class="form-control-label">Agregar información de maestro</label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

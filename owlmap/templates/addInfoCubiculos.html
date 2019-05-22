@@ -6,7 +6,7 @@
       <!-- Tabs Titles -->
       <!-- Icon -->
       <div class="fadeIn first">
-        <img src="{{ url_for('static', filename='images/maestros.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5" >
+        <img src="{{ url_for('static', filename='images/localization.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5" >
       </div>
       <!-- Add Form -->
       <div class="content-section">
@@ -16,90 +16,90 @@
             <legend class="border-bottom mb-4">{{ legend }}</legend>
 
             <div class="form-group">
-              {{ form.exp.label(class="form-control-label")}}
+              {{ form.clave.label(class="form-control-label")}}
               <br>
-              {% if form.exp.errors %}
-              {{ form.exp(class="form-control form-control-lg is-invalid")}}
+              {% if form.clave.errors %}
+              {{ form.clave(class="form-control form-control-lg is-invalid")}}
               <div class="invalid-feedback">
-                {% for error in form.exp.errors %}
+                {% for error in form.clave.errors %}
                 <span>{{error}}</span>
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.exp(class="form-control form-control-lg")}}
+              {{ form.clave(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.nombres.label(class="form-control-label")}}
+              {{ form.latitud.label(class="form-control-label")}}
               <br>
-              {% if form.nombres.errors %}
-              {{ form.nombres(class="form-control form-control-lg is-invalid")}}
+              {% if form.latitud.errors %}
+              {{ form.latitud(class="form-control form-control-lg is-invalid")}}
               <div class="invalid-feedback">
-                {% for error in form.nombres.errors %}
+                {% for error in form.latitud.errors %}
                 <span>{{error}}</span>
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.nombres(class="form-control form-control-lg")}}
+              {{ form.latitud(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.apellidos.label(class="form-control-label")}}
+              {{ form.longitud.label(class="form-control-label")}}
               <br>
-              {% if form.apellidos.errors %}
-              {{ form.apellidos(class="form-control form-control-lg is-invalid")}}
+              {% if form.longitud.errors %}
+              {{ form.longitud(class="form-control form-control-lg is-invalid")}}
               <div class="invalid-feedback">
-                {% for error in form.apellidos.errors %}
+                {% for error in form.longitud.errors %}
                 <span>{{error}}</span>
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.apellidos(class="form-control form-control-lg")}}
+              {{ form.longitud(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.email.label(class="form-control-label")}}
+              {{ form.nombre.label(class="form-control-label")}}
               <br>
-              {% if form.email.errors %}
-              {{ form.email(class="form-control form-control-lg is-invalid")}}
+              {% if form.nombre.errors %}
+              {{ form.nombre(class="form-control form-control-lg is-invalid")}}
               <div class="invalid-feedback">
-                {% for error in form.email.errors %}
+                {% for error in form.nombre.errors %}
                 <span>{{error}}</span>
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.email(class="form-control form-control-lg")}}
+              {{ form.nombre(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
             <div class="form-group">
-              {{ form.tel.label(class="form-control-label")}}
+              {{ form.descripcion.label(class="form-control-label")}}
               <br>
-              {% if form.tel.errors %}
-              {{ form.tel(class="form-control form-control-lg is-invalid")}}
+              {% if form.descripcion.errors %}
+              {{ form.descripcion(class="form-control form-control-lg is-invalid")}}
               <div class="invalid-feedback">
-                {% for error in form.tel.errors %}
+                {% for error in form.descripcion.errors %}
                 <span>{{error}}</span>
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.tel(class="form-control form-control-lg")}}
+              {{ form.descripcion(class="form-control form-control-lg")}}
               {% endif %}
             </div>
 
-            {% if cubiculos %}
+            {% if edificios %}
             <div class="form-group">
-              {{ form.cubo.label(class="form-control-label")}}
+              {{ form.edificio.label(class="form-control-label")}}
               <select class="form-control" data-live-search="true" name="comp_select" >
-                {% if cuboinicial %}
-                <option data-tokens="{{puntoinicial.nom}}">{{cuboinicial.clave}}</option>
+                {% if edifinicial %}
+                <option data-tokens="{{edifinicial.nom}}">{{edifinicial.clave}}</option>
                 {% endif %}
                 <option data-tokens="">--</option>
-                {% for cubiculo in cubiculos %}
-                <option data-tokens="{{cubiculo.clave}}">{{cubiculo.clave}}</option>
+                {% for edificio in edificios %}
+                <option data-tokens="{{edificio.clave}}">{{edificio.clave}}</option>
                 {% endfor %}
               </select>
             </div>
@@ -115,5 +115,6 @@
     </div>
   </div>
 </div>
+
 
 {% endblock content %}

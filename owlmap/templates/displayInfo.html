@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <div class="wrapper fadeInDown">
+    <div id="formContentEdit" >
+      <!-- Tabs Titles -->
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="{{ url_for('static', filename='images/edit.png') }}" height="150" width="150" align="middle" style="padding: 20px; opacity: 0.5" >
+      </div>
+      <!-- Display Form Edificios y Servicios-->
+      {% if edificios or servicios %}
+      <legend class="border-bottom mb-4">Edificios y servicios</legend>
+      <table class="table table-hover" style="text-align:justify">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Clave</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Latitud</th>
+            <th scope="col">Longitud</th>
+            <th scope="col">Descripción</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for edificio in edificios %}
+          <tr>
+            <td scope="col">Edificio</td>
+            <td scope="col">{{ edificio.clave }}</td>
+            <td scope="col">{{ edificio.nom }}</td>
+            <td scope="col">{{ edificio.lat }}</td>
+            <td scope="col">{{ edificio.lng }}</td>
+            <td scope="col">{{ edificio.desc }}</td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoEdificio', edificioID=edificio.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{edificio.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+          </tr>
+          {% endfor %}
+          {% for servicio in servicios %}
+          <tr>
+            <td scope="col">Servicio</td>
+            <td scope="col">{{ servicio.clave }}</td>
+            <td scope="col">{{ servicio.nom }}</td>
+            <td scope="col">{{ servicio.lat }}</td>
+            <td scope="col">{{ servicio.lng }}</td>
+            <td scope="col">{{ servicio.desc }}</td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoServicio', servicioID=servicio.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{servicio.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if cubiculos or salones %}
+      <legend class="border-bottom mb-4">Cubículos y salones</legend>
+      <table class="table table-hover" style="text-align:justify">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Clave</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Latitud</th>
+            <th scope="col">Longitud</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Edificio</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cubiculo in cubiculos %}
+          <tr>
+            <td scope="col">Cubículo</td>
+            <td scope="col">{{ cubiculo.clave }}</td>
+            <td scope="col">{{ cubiculo.nom }}</td>
+            <td scope="col">{{ cubiculo.lat }}</td>
+            <td scope="col">{{ cubiculo.lng }}</td>
+            <td scope="col">{{ cubiculo.desc }}</td>
+            <td scope="col">{{ cubiculo.edif_clave }}</td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoCubiculo', cubiculoID=cubiculo.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{cubiculo.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+          </tr>
+          {% endfor %}
+          {% for salon in salones %}
+          <tr>
+            <td scope="col">Salón</td>
+            <td scope="col">{{ salon.clave }}</td>
+            <td scope="col">{{ salon.nom }}</td>
+            <td scope="col">{{ salon.lat }}</td>
+            <td scope="col">{{ salon.lng }}</td>
+            <td scope="col">{{ salon.desc }}</td>
+            <td scope="col">{{ salon.edif_clave }}</td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoSalon', salonID=salon.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{salon.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+{% for edificio in edificios %}
+<div class="modal fade" id="deleteModal{{edificio.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de eliminar el registro de {{edificio.nom}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="{{ url_for('deleteInfoEdificio', edificioID=edificio.clave) }}" method="POST">
+            <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for servicio in servicios %}
+<div class="modal fade" id="deleteModal{{servicio.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de eliminar el registro de {{servicio.nom}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="{{ url_for('deleteInfoServicio', servicioID=servicio.clave) }}" method="POST">
+            <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for cubiculo in cubiculos %}
+<div class="modal fade" id="deleteModal{{cubiculo.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de eliminar el registro de {{cubiculo.nom}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="{{ url_for('deleteInfoCubiculo', cubiculoID=cubiculo.clave) }}" method="POST">
+            <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for salon in salones %}
+<div class="modal fade" id="deleteModal{{salon.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de eliminar el registro de {{salon.nom}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="{{ url_for('deleteInfoSalon', salonID=salon.clave) }}" method="POST">
+            <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

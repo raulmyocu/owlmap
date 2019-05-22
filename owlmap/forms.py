@@ -30,6 +30,22 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Guardar información')
 
 
+class RegistrationFormCubSal(FlaskForm):
+    clave = StringField('Clave del punto', validators=[Length(min=2, max=5), DataRequired()],
+            render_kw={"placeholder": "Clave"})
+    latitud = StringField('Latitud del punto', validators=[DataRequired()],
+            render_kw={"placeholder": "Latitud"})
+    longitud = StringField('Longitud del punto', validators=[DataRequired()],
+            render_kw={"placeholder": "Longitud"})
+    nombre = StringField('Nombre', validators=[Length(min=5, max=60), DataRequired()],
+            render_kw={"placeholder": "Nombre"})
+    descripcion = StringField('Descripción', validators=[DataRequired()],
+            render_kw={"placeholder": "Descripción"})
+    edificio = StringField('Edificio', validators=[DataRequired()],
+            render_kw={"placeholder": "Edificio"})
+    submit = SubmitField('Guardar información')
+
+
 class RegistrationFormMaestro(FlaskForm):
     exp = StringField('Expediente', validators=[Length(min=10, max=20), DataRequired()],
             render_kw={"placeholder": "Expediente"})
