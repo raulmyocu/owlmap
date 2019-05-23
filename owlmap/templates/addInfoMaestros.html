@@ -26,7 +26,7 @@
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.exp(class="form-control form-control-lg")}}
+              {{ form.exp(class="form-control form-control-lg", pattern="[0-9]{8,12}" )}}
               {% endif %}
             </div>
 
@@ -41,7 +41,7 @@
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.nombres(class="form-control form-control-lg")}}
+              {{ form.nombres(class="form-control form-control-lg", maxlength="60")}}
               {% endif %}
             </div>
 
@@ -56,7 +56,7 @@
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.apellidos(class="form-control form-control-lg")}}
+              {{ form.apellidos(class="form-control form-control-lg", maxlength="60")}}
               {% endif %}
             </div>
 
@@ -71,7 +71,7 @@
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.email(class="form-control form-control-lg")}}
+              {{ form.email(class="form-control form-control-lg", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" )}}
               {% endif %}
             </div>
 
@@ -86,7 +86,7 @@
                 {% endfor %}
               </div>
               {%else %}
-              {{ form.tel(class="form-control form-control-lg")}}
+              {{ form.tel(class="form-control form-control-lg", pattern="[0-9]{8,16}")}}
               {% endif %}
             </div>
 
