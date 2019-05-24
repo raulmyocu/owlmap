@@ -97,13 +97,17 @@
             {% if edificios %}
             <div class="form-group">
               {{ form.edificio.label(class="form-control-label")}}
-              <select class="form-control" data-live-search="true" name="comp_select" >
+              <select class="form-control" data-live-search="true" name="comp_select" onchange="muestraUbicacion(this)">
                 {% if edifinicial %}
-                <option data-tokens="{{edifinicial.nom}}">{{edifinicial.clave}}</option>
+                <option id="{{ edifinicial.clave }}" lat="{{ edifinicial.lat }}" lng="{{ edifinicial.lng }}">
+                  {{edifinicial.clave}}
+                </option>
                 {% endif %}
-                <option data-tokens="">--</option>
+                <option>--</option>
                 {% for edificio in edificios %}
-                <option data-tokens="{{edificio.clave}}">{{edificio.clave}}</option>
+                <option id="{{ edificio.clave }}" lat="{{ edificio.lat }}" lng="{{ edificio.lng }}">
+                  {{edificio.clave}}
+                </option>
                 {% endfor %}
               </select>
             </div>
@@ -121,6 +125,6 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/selectLatLng.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/selectLatLng.js') }}"{% if edifinicial %} onload="cambiaInput({{ edifinicial.lat }}, {{ edifinicial.lng }})"{% endif %}></script>
 
 {% endblock content %}

@@ -15,10 +15,21 @@ L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
 }).addTo(map);
 
 map.on('click', function(ev) {
-  document.getElementById("latitud").value = ev.latlng.lat;
-  document.getElementById("longitud").value = ev.latlng.lng;
-  verUbicacion(ev.latlng.lat, ev.latlng.lng);
+  cambiaInput(ev.latlng.lat, ev.latlng.lng);
 });
+
+function muestraUbicacion(el) {
+  var key = el.options[el.selectedIndex].value;
+  var edif = document.getElementById(key);
+  cambiaInput(parseFloat(edif.attributes[1].value), parseFloat(edif.attributes[2].value));
+}
+
+function cambiaInput(lat, lng) {
+  console.log("y");
+  document.getElementById("latitud").value = lat;
+  document.getElementById("longitud").value = lng;
+  verUbicacion(lat, lng);
+}
 
 function verUbicacion(latitud, longitud) {
   if (locMarker != null) {
