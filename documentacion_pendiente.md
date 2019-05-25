@@ -44,10 +44,10 @@
  --------
 ### Manual de Usuario (_Ximena_)
  - Describir casos de uso:
-  - Iniciar sesión
-  - Visualizar mapa
-  - Usar buscador
+  - **Iniciar sesión**
+  - Visualizar mapa _Agregar ubicacion actual_
+  - **Usar buscador**
+  - Visualizar ruta
   - Agregar información de lugares
   - Agregar información de maestros
-  - Visualizar ruta
  - Agregar capturas de pantalla
