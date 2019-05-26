@@ -12,12 +12,12 @@
  - Actualizar al usuario administrador
 
 ---------
-### Diagramas de Actividad (_Emanuel_)
- - **Iniciar sesión**
- - **Visualizar mapa**
- - **Usar buscador**
- - **Agregar información de lugares**
- - **Agregar información de maestros**
+### ~~Diagramas de Actividad~~ (_Emanuel_)
+ - Iniciar sesión
+ - Visualizar mapa
+ - Usar buscador
+ - Agregar información de lugares
+ - Agregar información de maestros
  - Visualizar ruta
 
 --------
