@@ -5,7 +5,7 @@
  - Agregar rutas
 
 ---
-### Diagrama de Clases (_Emanuel_)
+### ~~Diagrama de Clases~~ (_Emanuel_)
  - Quitar lo del foro
  - Agregar rutas
  - Separar puntos en tablas
@@ -15,9 +15,9 @@
 ### Diagramas de Actividad (_Emanuel_)
  - **Iniciar sesión**
  - **Visualizar mapa**
- - Usar buscador
- - Agregar información de lugares
- - Agregar información de maestros
+ - **Usar buscador**
+ - **Agregar información de lugares**
+ - **Agregar información de maestros**
  - Visualizar ruta
 
 --------
@@ -50,5 +50,5 @@
   - Visualizar ruta
   - **Agregar información de lugares**
   - **Agregar información de maestros**
-  - **Cerrar sesión** 
+  - **Cerrar sesión**
  - Agregar capturas de pantalla
