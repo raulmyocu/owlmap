@@ -49,6 +49,6 @@
   - **Usar buscador**
   - Visualizar ruta
   - **Agregar información de lugares**
-  - Agregar información de maestros
+  - **Agregar información de maestros**
   - **Cerrar sesión** 
  - Agregar capturas de pantalla

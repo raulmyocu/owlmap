@@ -20,7 +20,8 @@ Una vez aquí, basta con escribir el lugar a buscar y dar clic en la lupa que se
 
 ![](/Capturas/CU3.2.png "Usar buscador")
 
-#### 2.3.- Iniciar sesión
+#### 2.3.- Visualizar ruta
+#### 2.4.- Iniciar sesión
 Owlmap permite a un usuario identificarse como administrador por medio del inicio de sesión.
 Para iniciar sesión dentro de la aplicación basta con desplegar el menú situado en la esquina superior izquierda, y seleccionar la opción "Iniciar sesión".  
 
@@ -35,8 +36,8 @@ Al dar clic sobre el botón "Iniciar sesión" se redirigirá a home, pero puede 
 ![](/Capturas/CU1.3.png "Iniciar sesión 3")
 
 
-#### 2.4.- Visualizar ruta
 #### 2.5.- Información de lugares
+
 Owlmap permite al administrador manejar la información de la base de datos; a continuación se muestran las posibles opciones disponibles:
 * ##### 2.5.1.- Agregar
 
@@ -55,7 +56,7 @@ _(De tratarse de un cubículo o salón, puede seleccionarse un edificio al cual 
 
 ![](/Capturas/CU5.4.png "Agregar información lugares 4")
 
-Al dar clic en "Guardar información" se redireccionará a una página donde se puede ver toda la información contenida en la base de datos (en las tablas de lugares y maestros); se puede corroborar que se agregó correctamente con el mensaje que aparecerá debajo de la barra superior.
+Al dar clic en "Guardar información" se redireccionará a una página donde se puede ver toda la información contenida en la base de datos (en las tablas de lugares); se puede corroborar que se agregó correctamente con el mensaje que aparecerá debajo de la barra superior.
 
 ![](/Capturas/CU5.3.png "Agregar información lugares 5")
 
@@ -99,13 +100,64 @@ Al presionar en "Borrar registro", se confirmará el borrado y aparecerán los l
 
 #### 2.6.- Información de maestros
 
+Owlmap permite al administrador manejar la información de la base de datos; a continuación se muestran las posibles opciones disponibles:
 * ##### 2.6.1.- Agregar
 
+Para agregar información de un maestro no existente dentro de la base de datos, es necesario desplegar el menú de la parte superior izquierda, donde aparecerá la opción "Agregar información".
 
+![](/Capturas/CU7.1.png "Agregar información maestros 1")
+
+Para agregar la información de un maestro, es necesario seleccionar la opción "Agregar maestro".
+
+![](/Capturas/CU6.1.png "Agregar información maestros 2")
+
+Al seleccionar la opción "Agregar maestro", será redirigido a un formulario con los campos de la información necesaria.
+_(Si existen cubículos, aparecerá una lista de estos, de los cuales le puede ser asignado uno a este nuevo registro de maestro)_
+
+![](/Capturas/CU6.2.png "Agregar información maestros 3")
+
+Una vez llenados los campos, al dar clic en "Guardar información" se redireccionará a una página donde se puede ver toda la información contenida en la base de datos (en la tabla maestros); se puede corroborar que se agregó correctamente con el mensaje que aparecerá debajo de la barra superior.
+
+![](/Capturas/CU6.3.png "Agregar información maestros 5")
 
 * ##### 2.6.2.- Ver
+
+Para ver la información existente, basta con desplegar el menú superior izquierdo y seleccionar la opción "Ver información de maestros".
+
+![](/Capturas/CU1.3.png "Agregar información maestros 5")
+
+De esta forma, se verá redireccionado y podrá visualizar los maestros existentes en la base de datos por medio de una tabla.
+
+![](/Capturas/CU6.4.png "Agregar información maestros 6")
+
 * ##### 2.6.3.- Editar
+
+Para editar información de maestros existente dentro de la base de datos, es necesario _visualizar la información (ver 2.6.2)_.
+
+![](/Capturas/CU6.5.png "Agregar información maestros 7")
+
+Al presionar sobre el ícono de "lápíz" del registro a editar, aparecerá el formulario con los campos del registro:
+
+![](/Capturas/CU6.6.png "Agregar información maestros 7")
+
+Una vez modificado el registro, se debe dar clic sobre "Guardar información" para guardar los cambios realizados.
+
+![](/Capturas/CU6.3.png "Agregar información maestros 8")
+
 * ##### 2.6.4.- Eliminar
+
+Para eliminar información de un maestro existente dentro de la base de datos, es necesario _visualizar la información (ver 2.6.2)_.
+
+![](/Capturas/CU6.4.png "Agregar información maestros 9")
+
+Basta con posicionarse sobre el ícono de "borrar" del registro a eliminar, o cual desplegará una ventana para confirmar la acción:
+
+![](/Capturas/CU6.7.png "Agregar información maestros 10")
+
+Al presionar en "Borrar registro", se confirmará el borrado y aparecerán los maestros restantes de la base de datos.
+
+![](/Capturas/CU6.8.png "Agregar información maestros 11")
+
 #### 2.7.- Cerrar sesión
 Si el usuario ha terminado de administrar los lugares y maestros que aparecen en los resultados del buscador, es posible cerrar sesión; para realizar esto es necesario desplegar el menú de la esquina superior izquierda, donde aparecerá la opción "Cerrar sesión".
 

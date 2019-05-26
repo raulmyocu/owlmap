@@ -405,7 +405,7 @@ def displayInfoMaestros():
 def editInfoMaestro(maestroID):
     maestro = Maestro.query.get_or_404(maestroID)
     form = RegistrationFormMaestro()
-    cubiculo = Cubiculo.query.all()
+    cubiculos = Cubiculo.query.all()
     cuboinicial = Cubiculo.query.filter(Cubiculo.clave.contains(maestro.cubo)).first()
 
     form.cubo.data = request.form.get('comp_select')
