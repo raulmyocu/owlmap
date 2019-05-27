@@ -42,7 +42,7 @@ class RegistrationFormCubSal(FlaskForm):
 
 
 class RegistrationFormMaestro(FlaskForm):
-    exp = StringField('Expediente', validators=[Length(min=10, max=20), DataRequired()],
+    exp = StringField('Expediente', validators=[Length(min=8, max=12), DataRequired()],
             render_kw={"placeholder": "Expediente"})
     cubo = StringField('Cubiculo', validators=[DataRequired()],
             render_kw={"placeholder": "Cubículo"})

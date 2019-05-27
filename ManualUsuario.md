@@ -7,7 +7,7 @@ El propósito de la aplicación web es contar con un buscador especializado para
 
 ### 2.- Guía de Inicio
 #### 2.1.- Visualizar mapa
-Owlmap permite al usuario ver un mapa del campus de la Universidad de Sonora (campus Hermosillo); para poder visualizarlo, basta con ingresar a la página principal.
+Owlmap permite al usuario ver un mapa del campus de la Universidad de Sonora (campus Hermosillo); para poder visualizarlo, basta con ingresar a la página principal; un marcador con forma de búho aparecerá señalando la ubicación actual.
 
 ![](/Capturas/CU2.1.png "Visualizar mapa")
 
@@ -21,6 +21,10 @@ Una vez aquí, basta con escribir el lugar a buscar y dar clic en la lupa que se
 ![](/Capturas/CU3.2.png "Usar buscador")
 
 #### 2.3.- Visualizar ruta
+Owlmap permite al usuario visualizar la ruta comprendida desde la ubicación actual hasta la ubicación del punto deseado; para ello es necesario utilizar el buscador _(ver 2.2)_, una vez buscado el punto deseado, basta con dar clic en el ícono de ruta.
+
+![](/Capturas/CU4.1.png "Ver ruta")
+
 #### 2.4.- Iniciar sesión
 Owlmap permite a un usuario identificarse como administrador por medio del inicio de sesión.
 Para iniciar sesión dentro de la aplicación basta con desplegar el menú situado en la esquina superior izquierda, y seleccionar la opción "Iniciar sesión".  
