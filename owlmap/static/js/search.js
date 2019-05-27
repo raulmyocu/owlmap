@@ -10,3 +10,7 @@ function searchString() {
   xhttp.open("GET", "search="+str, true);
   xhttp.send();
 }
+
+function ocultarResultados() {
+   document.getElementById("results").innerHTML = "";
+}

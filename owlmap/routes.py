@@ -489,4 +489,7 @@ def search(stringToSearch):
         "maestros": maestros.limit(7).all()
     }
 
+    if not results["edificios"] and not results["salones"] and not results["cubiculos"] and not results["servicios"] and not results["maestros"]:
+        return render_template('results.html')
+
     return render_template('results.html', results=results)
