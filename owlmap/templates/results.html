@@ -1,27 +1,73 @@
 {% if results %}
 <div class="row">
   <div class="col-7"></div>
-  <div class="col-4">
-
+  <div class="col-5">
     <div class="container" style="z-index: 1; position: relative">
-      <div class="wrapper fadeInDown">
-        <div class="bg-light" id="formContent">
-          <!-- Resultados-->
-          <legend class="border-top mt-2"></legend>
-          {% for result in results %}
-          <div class="content-section">
-            <button class="btn btn-light" type="button" onclick="verUbicacion({{ result.lat }}, {{ result.lng }})">
-              <h4>{{ result.nom }}</h4>
-              <p>{{ result.desc }}</p>
-            </button>
-            <button class="btn btn-light" type="button" onclick="verRuta({{ result.lat }}, {{ result.lng }})">Ruta</button>
-            <legend class="border-bottom mt-2"></legend>
-          </div>
+      <div id="results-box" class="bg-light fadeInDown">
+        {% if results["edificios"] %}
+          <h4>Edificios</h4>
+          {% for result in results["edificios"]%}
+            <h5>{{ result.nom }}</h5>
+            <p>{{ result.desc }}</p>
+            <p style="text-align: center">
+              <input onclick="verUbicacion({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+              <input onclick="verRuta({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+            </p>
           {% endfor %}
-        </div>
+        {% endif %}
+
+        {% if results["salones"] %}
+          <h4>Salones</h4>
+          {% for result in results["salones"]%}
+            <h5>{{ result.nom }}</h5>
+            <p>{{ result.desc }}</p>
+            <p style="text-align: center">
+              <input onclick="verUbicacion({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+              <input onclick="verRuta({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+            </p>
+          {% endfor %}
+        {% endif %}
+
+        {% if results["cubiculos"] %}
+          <h4>Cubiculos</h4>
+          {% for result in results["cubiculos"]%}
+            <h5>{{ result.nom }}</h5>
+            <p>{{ result.desc }}</p>
+            <p style="text-align: center">
+              <input onclick="verUbicacion({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+              <input onclick="verRuta({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+            </p>
+          {% endfor %}
+        {% endif %}
+
+        {% if results["servicios"] %}
+          <h4>Servicios</h4>
+          {% for result in results["servicios"]%}
+            <h5>{{ result.nom }}</h5>
+            <p>{{ result.desc }}</p>
+            <p style="text-align: center">
+              <input onclick="verUbicacion({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+              <input onclick="verRuta({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+            </p>
+          {% endfor %}
+        {% endif %}
+
+        {% if results["maestros"] %}
+          <h4>Maestros</h4>
+          {% for result in results["maestros"]%}
+            <h5>{{ result.nom }}</h5>
+            <p>{{ result.desc }}</p>
+            <p style="text-align: center">
+              <input onclick="verUbicacion({{ result.cubo.lat }}, {{ result.cubo.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+              <input onclick="verRuta({{ result.cubo.lat }}, {{ result.cubo.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5; transform: scaleX(-1);">
+            </p>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="">
+
       </div>
     </div>
-
   </div>
 </div>
 {% endif %}

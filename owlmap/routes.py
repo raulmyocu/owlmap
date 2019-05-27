@@ -456,9 +456,37 @@ def deleteInfoMaestro(maestroID):
 
 @app.route("/search=<stringToSearch>")
 def search(stringToSearch):
-    conectores = ["de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su",
-                "para", "es", "al", "como", "o", "pero", "me", "entre"] # Palabras comunes que no necesitamos buscar
+    conectores = {"de", "la", "el", "en", "y", "a", "los", "se", "del", "las", "con", "una", "su", "para", "es", "al", "como", "o", "pero", "me", "entre"} # Palabras comunes que no necesitamos buscar
 
-    results = Edificio.query.filter(Edificio.nom.contains(stringToSearch)).all()
-    print(render_template('results.html', results=results))
+    words = stringToSearch.split()
+    search = [x for x in words if x not in conectores]
+
+    edifs = Edificio.query
+    for wd in search:
+        edifs = edifs.filter(Edificio.nom.contains(wd))
+
+    salones = Salon.query
+    for wd in search:
+        salones = salones.filter(Salon.nom.contains(wd))
+
+    cubos = Cubiculo.query
+    for wd in search:
+        cubos = cubos.filter(Cubiculo.nom.contains(wd))
+
+    servs = Servicios.query
+    for wd in search:
+        servs = servs.filter(Servicios.nom.contains(wd))
+
+    maestros = Maestro.query
+    for wd in search:
+        maestros = maestros.filter(Maestro.nombres.contains(wd))
+
+    results =   {
+        "edificios": edifs.limit(7).all(),
+        "salones": salones.limit(7).all(),
+        "cubiculos": cubos.limit(7).all(),
+        "servicios": servs.limit(7).all(),
+        "maestros": maestros.limit(7).all()
+    }
+
     return render_template('results.html', results=results)

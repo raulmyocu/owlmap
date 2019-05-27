@@ -1,5 +1,4 @@
 function searchString() {
-  console.log("hola");
   var str = document.getElementById("searchfield").value;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {

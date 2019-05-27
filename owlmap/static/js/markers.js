@@ -2,6 +2,9 @@ function verUbicacion(latitud, longitud) {
   if (locMarker != null) {
     map.removeLayer(locMarker); //si hay marcador de localización, se borra
   }
+  if (ruta != null) {
+    map.removeLayer(ruta); //si hay marcador de localización, se borra
+  }
   const locCoords = [latitud, longitud];
   locMarker = L.marker(locCoords);
   locMarker.bindPopup('¡Aquí está el lugar que buscas!').openPopup();
