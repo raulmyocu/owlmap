@@ -36,7 +36,7 @@ class RegistrationFormCubSal(FlaskForm):
             render_kw={"placeholder": "Nombre"})
     descripcion = StringField('Descripción', validators=[DataRequired()],
             render_kw={"placeholder": "Descripción"})
-    edificio = StringField('Edificio', validators=[DataRequired()],
+    edificio = StringField('Edificio',
             render_kw={"placeholder": "Edificio"})
     submit = SubmitField('Guardar información')
 

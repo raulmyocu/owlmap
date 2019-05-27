@@ -1,6 +1,6 @@
 # Documentación pendiente
 ---
-### Diagrama de Casos de Uso (_Ximena_)
+### ~~Diagrama de Casos de Uso~~ (_Ximena_)
  - Quitar lo del foro
  - Agregar rutas
 
@@ -30,7 +30,7 @@
 - Visualizar ruta
 
 --------
-### Historias de usuario (_Ximena_)
+### ~~Historias de usuario~~ (_Ximena_)
  - Agregar rutas
  - Cambiar "Agregar" por "CRUD"
 

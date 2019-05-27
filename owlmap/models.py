@@ -35,7 +35,8 @@ class Edificio(db.Model):
 
 
 class Cubiculo(db.Model):
-    clave = db.Column(db.String(15), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    clave = db.Column(db.String(15), nullable=False)
     lat = db.Column(db.Float, nullable=False)
     lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)
@@ -47,7 +48,8 @@ class Cubiculo(db.Model):
 
 
 class Salon(db.Model):
-    clave = db.Column(db.String(15), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    clave = db.Column(db.String(15), nullable=False)
     lat = db.Column(db.Float, nullable=False)
     lng = db.Column(db.Float, nullable=False)
     nom = db.Column(db.String(60), nullable=False)

@@ -121,34 +121,25 @@ def deleteInfoEdificio(edificioID):
 def addInfoCubiculo():
     form = RegistrationFormCubSal()
     edificios = Edificio.query.all()
+
     if edificios:
         form.edificio.data = request.form.get('comp_select')
-        if form.validate_on_submit():
-            try:
-                cubiculo = Cubiculo(clave=form.clave.data, lat=form.latitud.data,
-                        lng=form.longitud.data, nom=form.nombre.data,
-                        desc=form.descripcion.data, edif_clave=form.edificio.data)
-                db.session.add(cubiculo)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfo'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
     else:
         form.edificio.data = '--'
-        if form.validate_on_submit():
-            try:
-                cubiculo = Cubiculo(clave=form.clave.data, lat=form.latitud.data,
-                        lng=form.longitud.data, nom=form.nombre.data,
-                        desc=form.descripcion.data, edif_clave=form.edificio.data)
-                db.session.add(cubiculo)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfo'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
+
+    if form.validate_on_submit():
+        try:
+            cubiculo = Cubiculo(clave=form.clave.data, lat=form.latitud.data,
+                    lng=form.longitud.data, nom=form.nombre.data,
+                    desc=form.descripcion.data, edif_clave=form.edificio.data)
+            db.session.add(cubiculo)
+            db.session.commit()
+            flash('Información guardada correctamente', 'success')
+            return redirect(url_for('displayInfo'))
+        except:
+            db.session.rollback()
+            flash('Hubo un error al capturar la información', 'danger')
+
 
     return render_template('addInfoCubiculos.html', title='Agregar información de cubículo',
                             form=form, legend='Agregar información de cubículo', edificios=edificios)
@@ -161,10 +152,14 @@ def editInfoCubiculo(cubiculoID):
     edifinicial = Edificio.query.filter(Edificio.clave.contains(cubiculo.edif_clave)).first()
     form = RegistrationFormCubSal()
 
-    form.edificio.data = request.form.get('comp_select')
+    if edificios:
+        form.edificio.data = request.form.get('comp_select')
+    else:
+        form.edificio.data = '--'
 
     if form.validate_on_submit():
         try:
+
             cubiculo.clave = form.clave.data
             cubiculo.lat = form.latitud.data
             cubiculo.lng = form.longitud.data
@@ -209,34 +204,24 @@ def deleteInfoCubiculo(cubiculoID):
 def addInfoSalon():
     form = RegistrationFormCubSal()
     edificios = Edificio.query.all()
+
     if edificios:
         form.edificio.data = request.form.get('comp_select')
-        if form.validate_on_submit():
-            try:
-                salon = Salon(clave=form.clave.data, lat=form.latitud.data,
-                        lng=form.longitud.data, nom=form.nombre.data,
-                        desc=form.descripcion.data, edif_clave=form.edificio.data)
-                db.session.add(salon)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfo'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
     else:
         form.edificio.data = '--'
-        if form.validate_on_submit():
-            try:
-                salon = Salon(clave=form.clave.data, lat=form.latitud.data,
-                        lng=form.longitud.data, nom=form.nombre.data,
-                        desc=form.descripcion.data, edif_clave=form.edificio.data)
-                db.session.add(salon)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfo'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
+
+    if form.validate_on_submit():
+        try:
+            salon = Salon(clave=form.clave.data, lat=form.latitud.data,
+                    lng=form.longitud.data, nom=form.nombre.data,
+                    desc=form.descripcion.data, edif_clave=form.edificio.data)
+            db.session.add(salon)
+            db.session.commit()
+            flash('Información guardada correctamente', 'success')
+            return redirect(url_for('displayInfo'))
+        except:
+            db.session.rollback()
+            flash('Hubo un error al capturar la información', 'danger')
 
     return render_template('addInfoSalones.html', title='Agregar información de salón',
                             form=form, legend='Agregar información de salón', edificios=edificios)
@@ -249,9 +234,13 @@ def editInfoSalon(salonID):
     edifinicial = Edificio.query.filter(Edificio.clave.contains(salon.edif_clave)).first()
     form = RegistrationFormCubSal()
 
-    form.edificio.data = request.form.get('comp_select')
+    if edificios:
+        form.edificio.data = request.form.get('comp_select')
+    else:
+        form.edificio.data = '--'
 
     if form.validate_on_submit():
+        print ('Validate on submit')
         try:
             salon.clave = form.clave.data
             salon.lat = form.latitud.data
@@ -275,7 +264,7 @@ def editInfoSalon(salonID):
         form.edificio.data = salon.edif_clave
 
     return render_template('addInfoSalones.html', form=form, edificios=edificios, edifinicial=edifinicial,
-                            title="Editar Información", legend='Editar información de cubículo')
+                            title="Editar Información", legend='Editar información de salón')
 
 
 @app.route("/deleteInfoSalon/<salonID>",  methods=['GET','POST'])
@@ -361,34 +350,24 @@ def deleteInfoServicio(servicioID):
 def addInfoMaestro():
     form = RegistrationFormMaestro()
     cubiculos = Cubiculo.query.all()
+
     if cubiculos:
         form.cubo.data = request.form.get('comp_select')
-        if form.validate_on_submit():
-            try:
-                maestro = Maestro(exp=form.exp.data, cubo=form.cubo.data,
-                            nombres=form.nombres.data, apellidos=form.apellidos.data,
-                            email=form.email.data, tel=form.tel.data)
-                db.session.add(maestro)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfoMaestros'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
     else:
         form.cubo.data = '--'
-        if form.validate_on_submit():
-            try:
-                maestro = Maestro(exp=form.exp.data, cubo=form.cubo.data,
-                            nombres=form.nombres.data, apellidos=form.apellidos.data,
-                            email=form.email.data, tel=form.tel.data)
-                db.session.add(maestro)
-                db.session.commit()
-                flash('Información guardada correctamente', 'success')
-                return redirect(url_for('displayInfoMaestros'))
-            except:
-                db.session.rollback()
-                flash('Hubo un error al capturar la información', 'danger')
+
+    if form.validate_on_submit():
+        try:
+            maestro = Maestro(exp=form.exp.data, cubo=form.cubo.data,
+                        nombres=form.nombres.data, apellidos=form.apellidos.data,
+                        email=form.email.data, tel=form.tel.data)
+            db.session.add(maestro)
+            db.session.commit()
+            flash('Información guardada correctamente', 'success')
+            return redirect(url_for('displayInfoMaestros'))
+        except:
+            db.session.rollback()
+            flash('Hubo un error al capturar la información', 'danger')
 
     return render_template('addInfoMaestros.html', title='Agregar Información',
                             form=form, legend='Agregar información de maestro', cubiculos=cubiculos)
@@ -408,7 +387,10 @@ def editInfoMaestro(maestroID):
     cubiculos = Cubiculo.query.all()
     cuboinicial = Cubiculo.query.filter(Cubiculo.clave.contains(maestro.cubo)).first()
 
-    form.cubo.data = request.form.get('comp_select')
+    if cubiculos:
+        form.cubo.data = request.form.get('comp_select')
+    else:
+        form.cubo.data = '--'
 
     if form.validate_on_submit():
         try:
@@ -426,7 +408,6 @@ def editInfoMaestro(maestroID):
             flash('Hubo un error al capturar la información de maestro', 'danger')
 
     elif request.method == 'GET':
-
         form.exp.data = maestro.exp
         form.nombres.data = maestro.nombres
         form.apellidos.data = maestro.apellidos

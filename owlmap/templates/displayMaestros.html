@@ -32,8 +32,8 @@
             <td scope="col">{{ maestro.cubo }}</td>
             <td scope="col">{{ maestro.email }}</td>
             <td scope="col">{{ maestro.tel }}</td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="{{ url_for('editInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21"></a> </p></td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="" data-toggle="modal" data-target="#deleteModal{{maestro.exp}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" ></a></p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="{{ url_for('editInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="" data-toggle="modal" data-target="#deleteModal{{maestro.exp}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
             <!--data-toggle="modal" data-target="#deleteModal" -->
           </tr>
           {% endfor %}

@@ -11,17 +11,17 @@
       <!-- Display Form Edificios y Servicios-->
       {% if edificios or servicios %}
       <legend class="border-bottom mb-4">Edificios y servicios</legend>
-      <table class="table table-hover" style="text-align:justify">
+      <table class="table table-hover" style="text-align:justify" style="width: 100%">
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Clave</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Latitud</th>
-            <th scope="col">Longitud</th>
-            <th scope="col">Descripción</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col" style="width: 10%;"></th>
+            <th scope="col" style="width: 7%;">Clave</th>
+            <th scope="col" style="width: 18%;">Nombre</th>
+            <th scope="col" style="width: 15%;">Latitud</th>
+            <th scope="col" style="width: 15%;">Longitud</th>
+            <th scope="col" style="width: 25%;">Descripción</th>
+            <th scope="col" style="width: 5%;"></th>
+            <th scope="col" style="width: 5%;" ></th>
           </tr>
         </thead>
         <tbody>
@@ -79,8 +79,8 @@
             <td scope="col">{{ cubiculo.lng }}</td>
             <td scope="col">{{ cubiculo.desc }}</td>
             <td scope="col">{{ cubiculo.edif_clave }}</td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoCubiculo', cubiculoID=cubiculo.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{cubiculo.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoCubiculo', cubiculoID=cubiculo.id)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{cubiculo.id}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
           </tr>
           {% endfor %}
           {% for salon in salones %}
@@ -92,8 +92,8 @@
             <td scope="col">{{ salon.lng }}</td>
             <td scope="col">{{ salon.desc }}</td>
             <td scope="col">{{ salon.edif_clave }}</td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoSalon', salonID=salon.clave)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{salon.clave}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="{{ url_for('editInfoSalon', salonID=salon.id)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'" href="" data-toggle="modal" data-target="#deleteModal{{salon.id}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a></p></td>
           </tr>
           {% endfor %}
         </tbody>
@@ -153,7 +153,7 @@
 {% endfor %}
 
 {% for cubiculo in cubiculos %}
-<div class="modal fade" id="deleteModal{{cubiculo.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal{{cubiculo.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -167,7 +167,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form action="{{ url_for('deleteInfoCubiculo', cubiculoID=cubiculo.clave) }}" method="POST">
+        <form action="{{ url_for('deleteInfoCubiculo', cubiculoID=cubiculo.id) }}" method="POST">
             <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
          </form>
       </div>
@@ -177,7 +177,7 @@
 {% endfor %}
 
 {% for salon in salones %}
-<div class="modal fade" id="deleteModal{{salon.clave}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal{{salon.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -191,7 +191,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form action="{{ url_for('deleteInfoSalon', salonID=salon.clave) }}" method="POST">
+        <form action="{{ url_for('deleteInfoSalon', salonID=salon.id) }}" method="POST">
             <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
          </form>
       </div>
