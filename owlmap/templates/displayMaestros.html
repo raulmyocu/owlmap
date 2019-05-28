@@ -29,11 +29,15 @@
             <td scope="col">{{ maestro[0].exp }}</td>
             <td scope="col">{{ maestro[0].nombres }}</td>
             <td scope="col">{{ maestro[0].apellidos }}</td>
+            {% if maestro[1] == 0 %}
+            <td scope="col">N/A</td>
+            {% else %}
             <td scope="col">{{ maestro[1].edif_clave }} - {{ maestro[1].clave }}</td>
+            {% endif %}
             <td scope="col">{{ maestro[0].email }}</td>
             <td scope="col">{{ maestro[0].tel }}</td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="{{ url_for('editInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
-            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="" data-toggle="modal" data-target="#deleteModal{{maestro.exp}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="{{ url_for('editInfoMaestro', maestroID=maestro[0].exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
+            <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="" data-toggle="modal" data-target="#deleteModal{{maestro[0].exp}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
             <!--data-toggle="modal" data-target="#deleteModal" -->
           </tr>
           {% endfor %}
@@ -46,7 +50,7 @@
 
 <!-- Modal -->
 {% for maestro in maestros %}
-<div class="modal fade" id="deleteModal{{maestro.exp}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal{{maestro[0].exp}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -56,11 +60,11 @@
         </button>
       </div>
       <div class="modal-body">
-        ¿Está seguro de eliminar el registro de {{maestro.nombres}}?
+        ¿Está seguro de eliminar el registro de {{maestro[0].nombres}}?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form action="{{ url_for('deleteInfoMaestro', maestroID=maestro.exp) }}" method="POST">
+        <form action="{{ url_for('deleteInfoMaestro', maestroID=maestro[0].exp) }}" method="POST">
            <button class="btn btn-danger" type="btn btn-primary" value="Borrar registro">Borrar registro</button>
          </form>
       </div>

@@ -72,7 +72,7 @@ def addInfoEdificio():
 @app.route("/editInfoEdificio/<edificioID>",  methods=['GET', 'POST'])
 @login_required
 def editInfoEdificio(edificioID):
-    edificio = Edificio.query.get_or_404(edificioID)
+    edificio = Edificio.query.get(edificioID)
     form = RegistrationForm()
 
     if form.validate_on_submit():
@@ -103,7 +103,7 @@ def editInfoEdificio(edificioID):
 @app.route("/deleteInfoEdificio/<edificioID>",  methods=['GET','POST'])
 @login_required
 def deleteInfoEdificio(edificioID):
-    edificio = Edificio.query.get_or_404(edificioID)
+    edificio = Edificio.query.get(edificioID)
     try:
         db.session.delete(edificio)
         db.session.commit()
@@ -147,7 +147,7 @@ def addInfoCubiculo():
 @app.route("/editInfoCubiculo/<cubiculoID>",  methods=['GET', 'POST'])
 @login_required
 def editInfoCubiculo(cubiculoID):
-    cubiculo = Cubiculo.query.get_or_404(cubiculoID)
+    cubiculo = Cubiculo.query.get(cubiculoID)
     edificios = Edificio.query.all()
     edifinicial = Edificio.query.filter(Edificio.clave.contains(cubiculo.edif_clave)).first()
     form = RegistrationFormCubSal()
@@ -188,7 +188,7 @@ def editInfoCubiculo(cubiculoID):
 @app.route("/deleteInfoCubiculo/<cubiculoID>",  methods=['GET','POST'])
 @login_required
 def deleteInfoCubiculo(cubiculoID):
-    cubiculo = Cubiculo.query.get_or_404(cubiculoID)
+    cubiculo = Cubiculo.query.get(cubiculoID)
     try:
         db.session.delete(cubiculo)
         db.session.commit()
@@ -229,7 +229,7 @@ def addInfoSalon():
 @app.route("/editInfoSalon/<salonID>",  methods=['GET', 'POST'])
 @login_required
 def editInfoSalon(salonID):
-    salon = Salon.query.get_or_404(salonID)
+    salon = Salon.query.get(salonID)
     edificios = Edificio.query.all()
     edifinicial = Edificio.query.filter(Edificio.clave.contains(salon.edif_clave)).first()
     form = RegistrationFormCubSal()
@@ -270,7 +270,7 @@ def editInfoSalon(salonID):
 @app.route("/deleteInfoSalon/<salonID>",  methods=['GET','POST'])
 @login_required
 def deleteInfoSalon(salonID):
-    salon = Salon.query.get_or_404(salonID)
+    salon = Salon.query.get(salonID)
     try:
         db.session.delete(salon)
         db.session.commit()
@@ -301,7 +301,7 @@ def addInfoServicio():
 @app.route("/editInfoServicio/<servicioID>",  methods=['GET', 'POST'])
 @login_required
 def editInfoServicio(servicioID):
-    servicio = Servicios.query.get_or_404(servicioID)
+    servicio = Servicios.query.get(servicioID)
     form = RegistrationForm()
 
     if form.validate_on_submit():
@@ -332,7 +332,7 @@ def editInfoServicio(servicioID):
 @app.route("/deleteInfoServicio/<servicioID>",  methods=['GET','POST'])
 @login_required
 def deleteInfoServicio(servicioID):
-    servicio = Servicios.query.get_or_404(servicioID)
+    servicio = Servicios.query.get(servicioID)
     try:
         db.session.delete(servicio)
         db.session.commit()
@@ -378,10 +378,14 @@ def addInfoMaestro():
 def displayInfoMaestros():
     maestros = Maestro.query.all()
     maestro_cub=[]
-    
+
     for maestro in maestros:
-        cub = Cubiculo.query.filter(Cubiculo.id.contains(maestro.cubo)).first()
-        maestro_cub.append([maestro, cub])
+        print(maestro.cubo)
+        if maestro.cubo == "--":
+            maestro_cub.append([maestro, 0])
+        else:
+            cub = Cubiculo.query.get(maestro.cubo)
+            maestro_cub.append([maestro, cub])
 
     return render_template('displayMaestros.html', maestros=maestro_cub,
                             title="Mostrar Información")
@@ -389,10 +393,10 @@ def displayInfoMaestros():
 @app.route("/editInfoMaestro/<maestroID>",  methods=['GET', 'POST'])
 @login_required
 def editInfoMaestro(maestroID):
-    maestro = Maestro.query.get_or_404(maestroID)
+    maestro = Maestro.query.get(maestroID)
     form = RegistrationFormMaestro()
     cubiculos = Cubiculo.query.all()
-    cuboinicial = Cubiculo.query.filter(Cubiculo.id.contains(maestro.cubo)).first()
+    cuboinicial = Cubiculo.query.get(maestro.cubo)
 
     if cubiculos:
         form.cubo.data = request.form.get('comp_select')
@@ -430,7 +434,7 @@ def editInfoMaestro(maestroID):
 @app.route("/deleteInfoMaestro/<maestroID>",  methods=['GET','POST'])
 @login_required
 def deleteInfoMaestro(maestroID):
-    maestro = Maestro.query.get_or_404(maestroID)
+    maestro = Maestro.query.get(maestroID)
     try:
         db.session.delete(maestro)
         db.session.commit()
