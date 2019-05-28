@@ -23225,7 +23225,7 @@
 											"top": -16,
 											"width": 88,
 											"height": 13,
-											"text": "(from Activity1)"
+											"text": "(from Usuario)"
 										},
 										{
 											"_type": "LabelView",
@@ -23325,9 +23325,9 @@
 											"font": "Arial;13;0",
 											"left": -32,
 											"top": -64,
-											"width": 88,
+											"width": 113.4326171875,
 											"height": 13,
-											"text": "(from Activity1)"
+											"text": "(from Mapa Leaflet)"
 										},
 										{
 											"_type": "LabelView",
@@ -23443,9 +23443,9 @@
 											"font": "Arial;13;0",
 											"left": -336,
 											"top": -80,
-											"width": 88,
+											"width": 121.38623046875,
 											"height": 13,
-											"text": "(from Activity1)"
+											"text": "(from Base de datos)"
 										},
 										{
 											"_type": "LabelView",
@@ -23921,9 +23921,9 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"width": 88,
+											"width": 113.4326171875,
 											"height": 13,
-											"text": "(from Activity1)"
+											"text": "(from Mapa Leaflet)"
 										},
 										{
 											"_type": "LabelView",
