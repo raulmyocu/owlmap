@@ -1,0 +1,22 @@
+
+Test Case 1  		<error>
+   Username :  empty string
+
+
+Test Case 2  		<error>
+   Username :  non-valid string
+
+
+Test Case 3  		<error>
+   Username :  non-existing user
+
+
+Test Case 4  		<error>
+   Password :  non-matching password
+
+
+Test Case 5  		(Key = 1.4.2.)
+   Server configuration :  one server
+   Username             :  existing user
+   Password             :  matching password
+

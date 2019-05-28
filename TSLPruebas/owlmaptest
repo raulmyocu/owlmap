@@ -1,0 +1,16 @@
+# Test specification for Owlmap "application"
+
+Enviroments:
+    Server configuration:
+	one server.
+
+Parameters:
+    Username:
+	empty string. 			[error]
+	non-valid string.		[error]
+	non-existing user.		[error]
+	existing user.			[property ValidUser]
+
+    Password:
+	non-matching password.		[error]
+	matching password.
