@@ -471,7 +471,7 @@ def search(stringToSearch):
 
     maestros = Maestro.query
     for wd in search:
-        maestros = maestros.filter(Maestro.nombres.contains(wd))
+        maestros = maestros.filter(Maestro.nombres.contains(wd)).union(maestros.filter(Maestro.apellidos.contains(wd)))
 
     maestros = maestros.limit(7).all()
     print(maestros)
