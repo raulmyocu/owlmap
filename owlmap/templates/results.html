@@ -30,10 +30,13 @@
             {% endif %}
 
             {% if results["cubiculos"] %}
-            <h4>Cubiculos</h4>
+            <h4>Cubículos</h4>
             {% for result in results["cubiculos"]%}
             <h5>{{ result.nom }}</h5>
             <p>{{ result.desc }}</p>
+            {% if result.maestro[0] %}
+            <p>Maestro: {{ result.maestro[0].nombres }} {{ result.maestro[0].apellidos }}</p>
+            {% endif %}
             <p style="text-align: center">
               <input onclick="verUbicacion({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5;">
               <input onclick="verRuta({{ result.lat }}, {{ result.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5;">
@@ -62,6 +65,10 @@
               <p style="text-align: center">
                 <input onclick="verUbicacion({{ result[1].lat }}, {{ result[1].lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5;">
                 <input onclick="verRuta({{ result[1].lat }}, {{ result[1].lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5;">
+              </p>
+              {% else %}
+              <p style="text-align: center">
+                <i>No se conoce cubículo</i>
               </p>
               {% endif %}
             {% endfor %}

@@ -455,15 +455,15 @@ def search(stringToSearch):
 
     edifs = Edificio.query
     for wd in search:
-        edifs = edifs.filter(Edificio.nom.contains(wd))
+        edifs = edifs.filter(Edificio.nom.contains(wd)).union(edifs.filter(Edificio.clave.contains(wd)))
 
     salones = Salon.query
     for wd in search:
-        salones = salones.filter(Salon.nom.contains(wd))
+        salones = salones.filter(Salon.nom.contains(wd)).union(salones.filter(Salon.clave.contains(wd))).union(salones.filter(Salon.edif_clave.contains(wd)))
 
     cubos = Cubiculo.query
     for wd in search:
-        cubos = cubos.filter(Cubiculo.nom.contains(wd))
+        cubos = cubos.filter(Cubiculo.nom.contains(wd)).union(cubos.filter(Cubiculo.clave.contains(wd))).union(cubos.filter(Cubiculo.edif_clave.contains(wd)))
 
     servs = Servicios.query
     for wd in search:
