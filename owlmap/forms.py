@@ -54,7 +54,5 @@ class RegistrationFormMaestro(FlaskForm):
             render_kw={"placeholder": "Correo electrónico"})
     tel = StringField('Telefono', validators=[Length(min=7, max=16), DataRequired()],
             render_kw={"placeholder": "Número de teléfono"})
-    cubo = StringField('Cubo', validators=[Length(min=2, max=5)],
-            render_kw={"placeholder": "Cubículo"})
 
     submit = SubmitField('Guardar información ')

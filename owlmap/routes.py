@@ -294,7 +294,6 @@ def addInfoServicio():
             flash('Información guardada correctamente', 'success')
             return redirect(url_for('displayInfo'))
         except:
-            #db.session.rollback()
             flash('Hubo un error al capturar la información', 'danger')
     return render_template('addInfoServicios.html', title='Agregar información de servicio',
                             form=form, legend='Agregar información')
@@ -356,6 +355,8 @@ def addInfoMaestro():
     else:
         form.cubo.data = '--'
 
+    print (form.cubo.data)
+
     if form.validate_on_submit():
         try:
             maestro = Maestro(exp=form.exp.data, cubo=form.cubo.data,
@@ -376,7 +377,13 @@ def addInfoMaestro():
 @login_required
 def displayInfoMaestros():
     maestros = Maestro.query.all()
-    return render_template('displayMaestros.html', maestros=maestros,
+    maestro_cub=[]
+    
+    for maestro in maestros:
+        cub = Cubiculo.query.filter(Cubiculo.id.contains(maestro.cubo)).first()
+        maestro_cub.append([maestro, cub])
+
+    return render_template('displayMaestros.html', maestros=maestro_cub,
                             title="Mostrar Información")
 
 @app.route("/editInfoMaestro/<maestroID>",  methods=['GET', 'POST'])
@@ -385,7 +392,7 @@ def editInfoMaestro(maestroID):
     maestro = Maestro.query.get_or_404(maestroID)
     form = RegistrationFormMaestro()
     cubiculos = Cubiculo.query.all()
-    cuboinicial = Cubiculo.query.filter(Cubiculo.clave.contains(maestro.cubo)).first()
+    cuboinicial = Cubiculo.query.filter(Cubiculo.id.contains(maestro.cubo)).first()
 
     if cubiculos:
         form.cubo.data = request.form.get('comp_select')

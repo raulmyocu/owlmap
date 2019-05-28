@@ -42,6 +42,7 @@ class Cubiculo(db.Model):
     nom = db.Column(db.String(60), nullable=False)
     desc = db.Column(db.String(240), nullable=False, default='')
     edif_clave = db.Column(db.String(15), db.ForeignKey('edificio.clave'), nullable=False)
+    maestro = db.relationship('Maestro', backref='cubiculo', lazy=True)
 
     def __repr__(self):
         return f"Cubiculos('{self.clave}', '{self.nom}' , ' {self.lat}' , '{self.lng}')"
@@ -73,7 +74,7 @@ class Servicios(db.Model):
 
 class Maestro(db.Model):
     exp = db.Column(db.Integer, primary_key=True)
-    cubo = db.Column(db.String(15), db.ForeignKey('cubiculo.clave'), nullable=True)
+    cubo = db.Column(db.Integer, db.ForeignKey('cubiculo.id'), nullable=True)
     nombres = db.Column(db.String(60), nullable=False)
     apellidos = db.Column(db.String(60), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)

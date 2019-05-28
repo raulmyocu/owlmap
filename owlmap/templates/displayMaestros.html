@@ -26,12 +26,12 @@
         <tbody>
           {% for maestro in maestros %}
           <tr>
-            <td scope="col">{{ maestro.exp }}</td>
-            <td scope="col">{{ maestro.nombres }}</td>
-            <td scope="col">{{ maestro.apellidos }}</td>
-            <td scope="col">{{ maestro.cubo }}</td>
-            <td scope="col">{{ maestro.email }}</td>
-            <td scope="col">{{ maestro.tel }}</td>
+            <td scope="col">{{ maestro[0].exp }}</td>
+            <td scope="col">{{ maestro[0].nombres }}</td>
+            <td scope="col">{{ maestro[0].apellidos }}</td>
+            <td scope="col">{{ maestro[1].edif_clave }} - {{ maestro[1].clave }}</td>
+            <td scope="col">{{ maestro[0].email }}</td>
+            <td scope="col">{{ maestro[0].tel }}</td>
             <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="{{ url_for('editInfoMaestro', maestroID=maestro.exp)}}"><img src="{{ url_for('static', filename='images/editIcon.png') }}" height="21" width="21" style="opacity: 0.5"></a> </p></td>
             <td scope="col"><p><a style="opacity: 0.75" onmouseover = "this.style.opacity = '1'" onmouseout = "this.style.opacity = '0.75'"  href="" data-toggle="modal" data-target="#deleteModal{{maestro.exp}}"><img src="{{ url_for('static', filename='images/deleteIcon.png') }}" height="21" width="21" style="opacity: 0.5" ></a></p></td>
             <!--data-toggle="modal" data-target="#deleteModal" -->

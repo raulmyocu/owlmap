@@ -95,11 +95,11 @@
               {{ form.cubo.label(class="form-control-label")}}
               <select class="form-control" data-live-search="true" name="comp_select" >
                 {% if cuboinicial %}
-                <option data-tokens="{{puntoinicial.nom}}">{{cuboinicial.clave}}</option>
+                <option data-tokens="{{cuboinicial.nom}}" value="{{cuboinicial.id}}">{{cuboinicial.edif_clave}} - {{cuboinicial.clave}}</option>
                 {% endif %}
                 <option data-tokens="">--</option>
                 {% for cubiculo in cubiculos %}
-                <option data-tokens="{{cubiculo.clave}}">{{cubiculo.clave}}</option>
+                <option data-tokens="{{cubiculo.clave}}" value="{{cubiculo.id}}">{{cubiculo.edif_clave}} - {{cubiculo.clave}}</option>
                 {% endfor %}
               </select>
             </div>
