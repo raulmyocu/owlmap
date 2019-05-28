@@ -56,17 +56,19 @@
             {% if results["maestros"] %}
             <h4>Maestros</h4>
             {% for result in results["maestros"]%}
-            <h5>{{ result.nom }}</h5>
-            <p>{{ result.desc }}</p>
-            <p style="text-align: center">
-              <input onclick="verUbicacion({{ result.cubo.lat }}, {{ result.cubo.lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5;">
-              <input onclick="verRuta({{ result.cubo.lat }}, {{ result.cubo.lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5;">
-            </p>
+              <h5>{{ result[0].nombres }} {{ result[0].apellidos }}</h5>
+              {% if result[1] != 0 %}
+              <p>Cubículo: {{ result[1].edif_clave }} - {{ result[1].clave }}</p>
+              <p style="text-align: center">
+                <input onclick="verUbicacion({{ result[1].lat }}, {{ result[1].lng }})" type="image" src="{{ url_for('static', filename='images/localization.png') }}" height="21" width="21" style="opacity: 0.5;">
+                <input onclick="verRuta({{ result[1].lat }}, {{ result[1].lng }})" type="image" src="{{ url_for('static', filename='images/route.png') }}" height="21" width="21" style="opacity: 0.5;">
+              </p>
+              {% endif %}
             {% endfor %}
             {% endif %}
           {% else %}
             <p style="text-align: center">
-              <i>No hay resultados</i>
+              <i>No se han encontrado resultados</i>
             </p>
           {% endif %}
         </div>

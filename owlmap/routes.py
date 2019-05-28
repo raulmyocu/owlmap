@@ -473,12 +473,23 @@ def search(stringToSearch):
     for wd in search:
         maestros = maestros.filter(Maestro.nombres.contains(wd))
 
+    maestros = maestros.limit(7).all()
+    print(maestros)
+    maestro_cub = []
+
+    for maestro in maestros:
+        if maestro.cubo == "--":
+            maestro_cub.append([maestro, 0])
+        else:
+            cub = Cubiculo.query.get(maestro.cubo)
+            maestro_cub.append([maestro, cub])
+
     results =   {
         "edificios": edifs.limit(7).all(),
         "salones": salones.limit(7).all(),
         "cubiculos": cubos.limit(7).all(),
         "servicios": servs.limit(7).all(),
-        "maestros": maestros.limit(7).all()
+        "maestros": maestro_cub
     }
 
     if not results["edificios"] and not results["salones"] and not results["cubiculos"] and not results["servicios"] and not results["maestros"]:
