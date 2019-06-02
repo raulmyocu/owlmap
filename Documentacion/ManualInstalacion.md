@@ -97,4 +97,4 @@ Para detener el servidor, basta con utilizar **CTRL-C**.
 
 _En caso de que la aplicacioń web vaya a ser lanzada a producción, no es recomendable usar el servidor desarrollo de Flask, sino un servidor WSGI como Gunicorn, y un servidor web como Nginx._
 
-[Haga clic aquí para ver el manual de usuario.](https://github.com/raulmyocu/owlmap/blob/master/ManualUsuario.md)
+[Haga clic aquí para ver el manual de usuario.](https://github.com/raulmyocu/owlmap/blob/master/Documentacion/ManualUsuario.md)
